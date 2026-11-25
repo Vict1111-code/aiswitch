@@ -54,5 +54,25 @@
   "terminal_financial": [
     "settled",
     "released"
-  ]
+  ],
+  "parent": {
+    "queued": [
+      "running",
+      "completed",
+      "partial",
+      "failed",
+      "cancelled"
+    ],
+    "running": [
+      "completed",
+      "partial",
+      "failed",
+      "cancelled"
+    ],
+    "completed": [],
+    "partial": [],
+    "failed": [],
+    "cancelled": []
+  },
+  "parent_cancel_requested": "independent boolean"
 }
