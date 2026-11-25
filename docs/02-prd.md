@@ -1,6 +1,6 @@
 # AISwitch — Product Requirements Document
 
-Version 1.1 | 2026-11-25 | Proposed baseline
+Version 1.2 | 2026-11-25 | Proposed baseline
 
 ## 1. Executive summary
 AISwitch is a provider-independent AI-native engineering workspace combining chat, coding, web/mobile app generation, research, knowledge and controlled agents. BYOK is foundational: multiple credentials per provider and extensible adapters, not a promise of universal protocol compatibility.
@@ -18,7 +18,7 @@ Secure multi-provider access; concurrent model collaboration; portable software;
 Developers, AI engineers, vibe coders, students, researchers, founders, freelancers, teams and enterprises. Initial persona: individual developer/researcher with existing API credentials.
 
 ## 6. Scope
-Web-first personal workspace; desktop/mobile clients and commercial collaboration later. Generated mobile apps are distinct from the Studio mobile client.
+Web-first personal and small-team workspace; desktop/mobile clients and advanced commercial collaboration later. Generated mobile apps are distinct from the Studio mobile client.
 
 ## 7. Priorities
 P0 MVP; P1 core engineering; P2 advanced; P3 future. Priority labels do not imply implemented status.
@@ -27,7 +27,7 @@ P0 MVP; P1 core engineering; P2 advanced; P3 future. Priority labels do not impl
 ### 8.1 Authentication and accounts (AUTH)
 Priority: P0.
 
-**Requirements:** Email/password, Google and GitHub login; verification, recovery, sessions, profile, personal workspace. P1 MFA, session revocation, export/deletion. P2 organizations and RBAC; P3 SSO.
+**Requirements:** Email/password, Google and GitHub login; verification, recovery, sessions, profile, personal workspace. P1 MFA, session revocation, export/deletion. P0 basic project membership and permissions; P2 advanced organizations and RBAC; P3 SSO.
 
 **Acceptance:** Two users cannot read each other's resources; revoked sessions fail.
 
@@ -62,7 +62,7 @@ Priority: P0.
 ### 8.6 Multi-model interaction (MMC)
 Priority: P0/P1/P2.
 
-**Requirements:** P0 single model, switching, concurrent independent parallel responses, side-by-side comparison, per-model usage, conversation budgets and independent cancellation. P1 group conversation, shared context, @mentions, dynamic participants, bounded rounds, debate, moderator, roles, automatic routing, independent/shared context, branches and templates. P2 collaborative engineering. See [all 20 MMC requirements](18-multi-model-chat.md).
+**Requirements:** P0 single model, switching, concurrent independent parallel responses, side-by-side comparison, per-model usage, conversation budgets and independent cancellation. P0 basic shared group conversation, shared context and mentions; P1 dynamic participants, advanced bounded debate, moderator, roles, automatic routing, branches and templates. P2 collaborative engineering. See [all 20 MMC requirements](18-multi-model-chat.md).
 
 **Acceptance:** Two streams run concurrently; one failure does not stop the other. Group stops at configured round/cost limit; synthesis preserves disagreements. Cross-provider sharing requires authorization.
 
@@ -104,7 +104,7 @@ Priority: P1.
 ### 8.12 Memory and knowledge (MEM)
 Priority: P1.
 
-**Requirements:** P0 project instructions. P1 summaries, semantic retrieval, indexing, edit/delete, relevance ranking, provenance, context optimization, retention and temporary sessions. P2 versioning, graph, organizational knowledge and conflict detection. Scopes personal, project, conversation, organization and working memory.
+**Requirements:** P0 project instructions and curated shared context. P1 summaries, semantic retrieval, indexing, edit/delete, relevance ranking, provenance, context optimization, retention and temporary sessions. P2 versioning, graph, organizational knowledge and conflict detection. Scopes personal, project, conversation, organization and working memory.
 
 **Acceptance:** Deletion removes associated retrieval records subject to disclosed retention; unrelated context is excluded.
 
@@ -211,10 +211,10 @@ BYOK free tier; proposed Pro $15/month, Team $25/user/month, enterprise custom. 
 Targets: valid provider connection >=95%; chat success >=98% excluding upstream outages/invalid credentials; billable request recording 100%; onboarding under 5 minutes; zero secret exposure/tenant leakage; citation validity >=95%, unsupported claims <5% on defined evaluation set; coding acceptance >=70%; critical tests and tested budget scenarios 100%; beta 25–50; paid conversion 5% hypothesis.
 
 ## 18. Roadmap
-Weeks 1–2 foundation; 3–6 multi-model MVP; 7–10 projects/memory; 11–14 research; 15–20 code/Git; 21–26 app builder; 27–32 agents; 33–40 integrations/mobile/desktop; 41–48+ commercial. Indicative only, supersedes earlier 24-week plan.
+Weeks 1–2 foundation; 3–8 collaborative multi-model MVP; 9–12 projects/memory; 13–16 research; 17–22 code/Git; 23–28 app builder; 29–34 agents; 35–42 integrations/mobile/desktop; 43–50+ commercial. Indicative only, supersedes earlier 24-week plan.
 
 ## 19. MVP release gate
-Auth, encrypted multi-key vault, OpenAI/Anthropic/OpenRouter/custom compatible adapters, model discovery/manual registration, streaming single and parallel chat, history, projects/instructions, prompt saving, cancellation, per-model costs, budgets, settings and CI. Excludes full IDE, autonomous agents, native clients, marketplace, deployment automation and enterprise. Release only after end-to-end onboarding, independent stream failure/cancellation, tenant isolation and concurrent budget tests pass.
+Auth, encrypted multi-key vault, OpenAI/Anthropic/OpenRouter/custom compatible adapters, model discovery/manual registration, streaming single and parallel chat, history, projects/instructions, prompt saving, cancellation, per-model costs, budgets, settings and CI. Also requires HAC-001–011: invitations, shared human–AI chat, mentions, realtime messaging, shared context, roles, credential policies, team budgets and activity. Excludes full IDE, autonomous agents, native clients, marketplace, deployment automation and enterprise. Release only after end-to-end onboarding, independent stream failure/cancellation, tenant isolation and concurrent budget tests pass.
 
 ## 20. QA
 Unit, contract, integration, E2E, security, accessibility, performance, sandbox, recovery and versioned AI evaluations. No critical defects; actual tests rather than model approval alone.
@@ -235,4 +235,7 @@ Marketplace, local-first desktop, self-hosted enterprise, collaboration, visual 
 One extensible workspace for provider-independent AI chat, engineering, research and controlled collaboration, with user ownership of code and credentials.
 
 ## 26. Supporting documents and decisions
-See [index](README.md). Stack, modular monolith, 48-week roadmap, pricing, quality targets and Expo are proposed, not approved. Detailed per-feature IDs beyond MMC, formal SRS, ERD, OpenAPI and ADRs remain pending. This is an expanded structured adaptation of the conversational PRD, not a verbatim reproduction.
+See [index](README.md). Stack, modular monolith, 50-week roadmap, pricing, quality targets and Expo are proposed, not approved. Detailed per-feature IDs beyond MMC, formal SRS, ERD, OpenAPI and ADRs remain pending. This is an expanded structured adaptation of the conversational PRD, not a verbatim reproduction.
+
+## 27. Human–AI collaboration (HAC)
+Collaboration is foundational. [HAC-001–030](19-human-ai-collaboration.md) and [shared intelligence](20-shared-intelligence.md) are normative companion requirements. P0 basic group chat, invitations, shared project context, realtime messages, permissioned credentials, team budgets and activity. P1 presence, rooms, decisions, task coordination, collaborative editing/research. P2 voice/video/whiteboard; P3 virtual office. Basic membership is P0; advanced organization administration remains P2. Seven proposed engines: gateway, collaboration, shared intelligence, engineering, orchestration, research and resource optimization. Track context repetition and cost per completed task. This section supersedes conflicting personal-only scope or team priority statements.
