@@ -7,3 +7,6 @@ Read docs/README.md, PRD, SRS, roadmap and security before implementation. Use i
 - Phase 0.2: expanded SRS v1.1 (60 grouped functional requirements, 20 planned verification scenarios, business rules and state machines).
 - Next: Phase 0.3 System Architecture Document; then ERD, gateway, OpenAPI, ADRs, roadmap/issues, consistency validation and merge review.
 - Branch docs/product-foundation; PR #1. Documentation only; no application implementation or tests verified. Proposed stack and operational thresholds require approval. Full per-feature traceability remains pending.
+
+## Phase 0.2A — collaboration realignment
+PRD/SRS v1.2; HAC-001–030 and CTX-001–010 added. P0 small-team collaboration, basic group chat, curated shared context, realtime messaging, membership and team budgets. Advanced debate P1; meetings P2; virtual office P3. Proposed roadmap 50 weeks. Next: Phase 0.3 SAD; incorporate seven engine boundaries and realtime/context trust model. No implementation tests executed. Reconcile remaining baseline documents before merge.
