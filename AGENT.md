@@ -28,3 +28,6 @@ Added docs/21-architecture-decisions.md: ADR-001–017 proposed, alternatives, r
 
 ## Phase 0.8 — Roadmap and issues
 Expanded roadmap and backlog: 17 work packages, GitHub issues #2–18 created, dependencies and acceptance gates. 50-week indicative schedule; staffing and effort not validated. Next Phase 0.9 documentation consistency validation. No implementation or tests; PR #1 remains open.
+
+## Phase 0.9 — Static consistency audit
+Reconciled PRD/SRS priorities, event vocabulary, index and backlog coverage; added docs/22-consistency-audit.md. Parsed OpenAPI: 35 unique operations, 22 schemas, no unresolved component refs. Partial audit only; independent lint, full link crawl, Mermaid rendering, physical DDL, complete contracts, ADR acceptance and full traceability pending. F01 blocks affected implementation. Next Phase 0.10 final planning-baseline review and merge decision.
