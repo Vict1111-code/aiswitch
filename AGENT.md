@@ -55,3 +55,6 @@ Readback found four missing SRS-HAC IDs; corrected registry and matrix to 170 re
 
 ## Phase 1.6A — API and parent-state remediation
 OpenAPI v1.2.0: 59 operations, 77 schemas, 12 typed event variants, structured consent, page parameters and five CRUD operations. Parent status aligned in API, review SQL and JSON registry; cancellation flag separate. B01 partial, B03 specification aligned pending validation. B02 physical schema next. External validation not run; F01 remains blocked.
+
+## Phase 1.6B — Expanded physical schema
+Review DDL now 39 tables; added identity ACL, gateway vault metadata, context, pricing/jobs/ledger and supporting tables. No SQL execution, no deployed migration. B02 partial; next transaction contracts, scoped authorization and cross-resource integrity, then disposable validation. F01 blocked; PR #19 draft.
