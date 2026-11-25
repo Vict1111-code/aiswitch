@@ -3,7 +3,7 @@
 Version 1.2 | 2026-11-25 | Proposed engineering baseline
 
 ## 1. Purpose and scope
-Derived from [PRD v1.1](02-prd.md) and [multi-model specification](18-multi-model-chat.md). P0 is personal and small-team web MVP; P1 core engineering; P2 advanced; P3 future. This document specifies observable behavior, not verified implementation. P3 features retain PRD scope and require later detailed specifications.
+Derived from [PRD v1.3](02-prd.md) and [multi-model specification](18-multi-model-chat.md). P0 is personal and small-team web MVP; P1 core engineering; P2 advanced; P3 future. This document specifies observable behavior, not verified implementation. P3 features retain PRD scope and require later detailed specifications.
 
 ## 2. Actors and boundaries
 Guest, authenticated user, workspace member/admin, system worker, external provider and sandbox. All external content and model outputs are untrusted. Only the application gateway may resolve AI credentials. Execution workers receive scoped capabilities, not vault access.
@@ -45,15 +45,15 @@ Verification TEST-MOD-01: Request unsupported tool capability and verify no prov
 Verification TEST-CHAT-01: Reconnect stream, regenerate and switch provider without losing authorized history.
 
 ### MMC — P0/P1/P2
-- SRS-MMC-001: The system shall p0 fan out identical authorized prompt to selected participants concurrently; isolate streams, failures and cancellation.
-- SRS-MMC-002: The system shall p1 group mode uses bounded turns, participant mentions, explicit transcript sharing, roles and moderator; debate preserves disagreement and evidence.
-- SRS-MMC-003: The system shall p1 auto routing selects eligible models; P2 collaborative engineering uses approved task graph. Preserve MMC-001–020 in companion specification.
+- SRS-MMC-001: The system shall fan out identical authorized prompt to selected participants concurrently; isolate streams, failures and cancellation.
+- SRS-MMC-002: The system shall support P0 basic group mode, mentions and authorized shared history; P1 bounded autonomous turns, roles, moderator and debate preserve disagreement and evidence.
+- SRS-MMC-003: The system shall support P1 automatic routing that selects eligible models; P2 collaborative engineering uses approved task graph. Preserve MMC-001–020 in companion specification.
 
 Verification TEST-MMC-01: Cancel one of two streams; other completes. Group reaches cap and stops.
 
 ### PROJ — P0
 - SRS-PROJ-001: The system shall create, read, update and delete projects within workspace.
-- SRS-PROJ-002: The system shall scope conversations and instructions to project; P1 files, tasks, repository, knowledge and budgets.
+- SRS-PROJ-002: The system shall scope conversations and instructions to project; P0 basic project budgets; P1 files, tasks, repository and extended knowledge.
 - SRS-PROJ-003: The system shall reject cross-project resource references without authorization.
 
 Verification TEST-PROJ-01: Use distinct project instructions and verify isolation.
@@ -160,11 +160,11 @@ Verification TEST-TEAM-01: Remove member and verify subsequent access denied.
 - BR-08: All external writes and production changes require applicable approval; no unrestricted agent autonomy.
 
 ## 5. State machines
-Run: queued → validating → reserved → running → completed/failed/canceled; validation may fail before reservation. Running may enter awaiting_approval or paused and return to running after authorization. Terminal states cannot restart; retry creates a new attempt linked to original run. Cancellation is best effort upstream; reconcile late usage. Persist transitions with timestamps and compare-and-set version.
+Run: queued → validating → reserved → running → completed/failed/cancelled; validation may fail before reservation. Running may enter awaiting_approval or paused and return to running after authorization. Terminal states cannot restart; retry creates a new attempt linked to original run. Cancellation is best effort upstream; reconcile late usage. Persist transitions with timestamps and compare-and-set version.
 
-Credential: unverified → active/invalid; active → disabled/invalid/revoked; disabled → active after validation; revoked terminal. Rotation creates new secret version; existing runs retain their authorized version until canceled or completed.
+Credential: unverified → active/invalid; active → disabled/invalid/revoked; disabled → active after validation; revoked terminal. Rotation creates new secret version; existing runs retain their authorized version until cancelled or completed.
 
-Parallel conversation: parent run contains independent child runs; aggregate completed, partial, failed or canceled from child terminal states. Group/debate: plan → participant turns → optional critique → synthesis → terminal; stop on caps, cancellation or policy failure. Synthesis itself consumes budget.
+Parallel conversation: parent run contains independent child runs; aggregate completed, partial, failed or cancelled from child terminal states. Group/debate: plan → participant turns → optional critique → synthesis → terminal; stop on caps, cancellation or policy failure. Synthesis itself consumes budget.
 
 Budget reservation: pending → reserved → reconciled/released; uncertain upstream usage → reconciliation_required. Never release uncertain charge solely because client disconnected.
 
@@ -182,7 +182,7 @@ Budget reservation: pending → reserved → reconciled/released; uncertain upst
 Use opaque IDs, UTC timestamps, explicit workspace ownership, immutable usage events and versioned pricing. Validate nonempty prompt, supported model ID, bounded output tokens, participant uniqueness and positive budgets. Store money as fixed precision decimal or integer micro-units, never binary floating point. Reject unknown fields in sensitive mutations. File quotas and context limits must be configurable. Deletion removes active records and derived retrieval data according to disclosed retention; backup expiry documented. Exact schema and numeric limits pending ERD/API decisions.
 
 ## 8. Interface and errors
-Versioned /api/v1; authenticated JSON APIs and SSE for generation. Proposed events: run.started, message.delta, usage.updated, run.completed, run.failed, run.canceled. Include run ID, participant ID, sequence and timestamp. Reconnect from last acknowledged sequence where retained; otherwise fetch persisted snapshot. Mutating requests use idempotency keys where duplicate effects are possible. Error envelope: code, safe message, trace_id, retryable. HTTP 400 invalid input, 401 unauthenticated, 403 forbidden, 404 unavailable resource, 409 conflict, 422 unsupported capability, 429 rate/budget limit, 502 upstream failure, 504 timeout. Never return raw upstream secrets. Retry bounded transient failures only; avoid duplicate billable requests when upstream outcome unknown.
+Versioned /api/v1; authenticated JSON APIs and SSE for generation. Canonical gateway/API events: accepted, queued, started, text_delta, reasoning_summary, tool_call_delta, tool_call_ready, usage_update, warning, completed, failed, cancelled. Envelope follows docs/07-ai-gateway.md and OpenAPI; advanced events only when supported. Reconnect from last acknowledged sequence where retained; otherwise fetch persisted snapshot. Mutating requests use idempotency keys where duplicate effects are possible. Error envelope: code, safe message, trace_id, retryable. HTTP 400 invalid input, 401 unauthenticated, 403 forbidden, 404 unavailable resource, 409 conflict, 422 unsupported capability, 429 rate/budget limit, 502 upstream failure, 504 timeout. Never return raw upstream secrets. Retry bounded transient failures only; avoid duplicate billable requests when upstream outcome unknown.
 
 ## 9. Nonfunctional requirements
 PRD targets: initial load <3s, internal API p95 <500ms excluding upstream, stream overhead p95 <300ms, typical search <2s, MVP availability 99.5%, daily backup, RPO 24h/RTO 4h, WCAG 2.2 AA. Proposed test baseline: 20 concurrent active sessions on documented staging hardware, report p95 and error rate; validate workload before adopting as release threshold. Browser support current stable Chrome, Firefox, Edge, Safari. Redacted structured logs, trace IDs, health checks and versioned migrations required.
