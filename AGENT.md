@@ -16,3 +16,6 @@ Expanded docs/04-architecture.md v1.0: seven logical engines, modular monolith, 
 
 ## Phase 0.4 — Database design
 Expanded docs/05-database.md v1.0: 57 logical entities, four ERDs, tenant composite FKs, RLS design, transactional room events, atomic budget ledger, context lifecycle, indexes and migration plan. Physical SQL and tests pending; no database provisioned. Next Phase 0.5 Universal AI Gateway specification.
+
+## Phase 0.5 — Universal AI Gateway
+Expanded docs/07-ai-gateway.md v1.0: 20 sections, 14 planned provider targets, GW-001–028 acceptance requirements, normalized adapter/stream contracts, routing, credential grants, child runs, context consent, credit estimates, cost reconciliation and local bridge. Database follow-ups listed in section 20. No live provider calls or tests. Next Phase 0.6 API contracts and OpenAPI.
