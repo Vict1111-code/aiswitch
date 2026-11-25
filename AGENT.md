@@ -22,3 +22,6 @@ Expanded docs/07-ai-gateway.md v1.0: 20 sections, 14 planned provider targets, G
 
 ## Phase 0.6 — API contracts
 Expanded docs/06-api.md and added docs/openapi.yaml (OpenAPI 3.1, 35 initial P0 operations, 22 schemas). REST/SSE and proposed WebSocket protocol; unique operation IDs and schema refs checked during generation. Partial contract with explicit gaps in section 10; no external lint or runtime tests. Next Phase 0.7 ADRs; resolve contract gaps before implementation and reconcile SRS priorities/event names.
+
+## Phase 0.7 — Architecture decisions
+Added docs/21-architecture-decisions.md: ADR-001–017 proposed, alternatives, rationale, consequences and acceptance evidence. No decisions formally accepted or benchmarks run. Next Phase 0.8 implementation roadmap and GitHub issues; include ADR review and unresolved contract/schema gates.
