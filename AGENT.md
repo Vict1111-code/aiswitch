@@ -64,3 +64,6 @@ Readback detected SQL corruption from previous string replacement (currency rege
 
 ## Phase 1.6D — Authorization and integrity
 Added room owner/visibility, typed budget scope FKs, overlapping-period exclusion (btree_gist), separate vault schema and docs/29-authorization-integrity.md. 12 planned authorization tests. No access-granting RLS policies or dispatch enforcement implemented; no SQL executed. Next prioritize executable disposable validation and remediation, not more documentation. F01 blocked.
+
+## Phase 1.6E/F — Executable validation
+Added Python contract validator, PostgreSQL smoke tests and GitHub Actions workflow. Run 45615625677: postgres job passed schema installation, transaction functions and smoke tests; contracts failed at MMC-002 after OpenAPI and state graph checks passed. All 19 abbreviated MMC IDs normalized in source; static readback confirms all 20 MMC IDs present. Rerun pending. Smoke tests are privileged fixture checks, not full authorization or concurrency evidence. F01 remains blocked.
