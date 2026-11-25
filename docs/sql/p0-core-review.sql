@@ -137,16 +137,7 @@ create table aiswitch.manifest_items (
  foreign key(workspace_id,revision_id) references aiswitch.source_revisions(workspace_id,id));
 create table aiswitch.model_pricing (
  id uuid primary key default gen_random_uuid(), workspace_id uuid, model_id uuid references aiswitch.models(id), custom_model_id uuid,
- currency text not null check(currency ~ '^[A-Z]{3} until narrowly scoped access policies and grants are reviewed.
-do $$ declare t record; begin
- for t in select tablename from pg_tables where schemaname='aiswitch' loop
- execute format('alter table aiswitch.%I enable row level security',t.tablename);
- execute format('alter table aiswitch.%I force row level security',t.tablename);
- end loop;
-end $$;
-revoke all on all tables in schema aiswitch from public;
-commit;
-), input_rate numeric(24,8) not null check(input_rate>=0), output_rate numeric(24,8) not null check(output_rate>=0),
+ currency text not null check(currency ~ '^[A-Z]{3}$'), input_rate numeric(24,8) not null check(input_rate>=0), output_rate numeric(24,8) not null check(output_rate>=0),
  token_unit integer not null check(token_unit>0), effective_at timestamptz not null,
  check((model_id is not null and custom_model_id is null and workspace_id is null) or (model_id is null and custom_model_id is not null and workspace_id is not null)),
  foreign key(workspace_id,custom_model_id) references aiswitch.custom_models(workspace_id,id));
@@ -163,16 +154,7 @@ create table aiswitch.run_jobs (
  fence bigint not null default 0 check(fence>=0), lease_until timestamptz, available_at timestamptz not null default now(),
  unique(child_id), foreign key(workspace_id,child_id) references aiswitch.run_children(workspace_id,id));
 create table aiswitch.credit_records (
- id uuid primary key default gen_random_uuid(), workspace_id uuid not null, credential_id uuid not null, currency text not null check(currency ~ '^[A-Z]{3} until narrowly scoped access policies and grants are reviewed.
-do $$ declare t record; begin
- for t in select tablename from pg_tables where schemaname='aiswitch' loop
- execute format('alter table aiswitch.%I enable row level security',t.tablename);
- execute format('alter table aiswitch.%I force row level security',t.tablename);
- end loop;
-end $$;
-revoke all on all tables in schema aiswitch from public;
-commit;
-),
+ id uuid primary key default gen_random_uuid(), workspace_id uuid not null, credential_id uuid not null, currency text not null check(currency ~ '^[A-Z]{3}$'),
  amount numeric(24,8) not null check(amount>=0), observed_at timestamptz not null, expires_at timestamptz,
  foreign key(workspace_id,credential_id) references aiswitch.provider_credentials(workspace_id,id));
 create table aiswitch.ledger_events (
@@ -199,7 +181,7 @@ alter table aiswitch.messages add column deleted_at timestamptz;
 create index run_jobs_ready on aiswitch.run_jobs(state,available_at,lease_until);
 create index source_revisions_latest on aiswitch.source_revisions(source_id,revision desc);
 -- No client grants. Append-only triggers are defense in depth, not protection against database administrators.
-create function aiswitch.reject_mutation() returns trigger language plpgsql security invoker set search_path=pg_catalog as $ begin raise exception 'append-only record'; end; $;
+create function aiswitch.reject_mutation() returns trigger language plpgsql security invoker set search_path=pg_catalog as $fn$ begin raise exception 'append-only record'; end; $fn$;
 revoke all on function aiswitch.reject_mutation() from public;
 create trigger ledger_append_only before update or delete on aiswitch.ledger_events for each row execute function aiswitch.reject_mutation();
 create trigger pricing_append_only before update or delete on aiswitch.model_pricing for each row execute function aiswitch.reject_mutation();
