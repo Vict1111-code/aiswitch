@@ -43,3 +43,6 @@ OpenAPI v1.1.0: 54 operations, 62 schemas; unique IDs and component refs checked
 
 ## Phase 1.3 — Physical schema draft
 Added docs/24-physical-schema.md and docs/sql/p0-core-review.sql (14 core tables). Review-only partial DDL, no database execution or deployment. Remaining P0 entities, ACL, vault, ledger, transaction functions and SQL tests pending. Next execution/financial state machines; F01 remains open.
+
+## Phase 1.4 — State machines
+Added docs/25-state-machines.md and docs/contracts/state-machines.json; gateway section 11 reconciled. 16 planned acceptance cases; execution and financial lifecycles independent, dispatch intent and fencing, no blind retry, late usage/corrections. No runtime tests. DDL and typed events still incomplete. Next P0 requirements-to-test traceability. F01 open, PR #19 draft.
