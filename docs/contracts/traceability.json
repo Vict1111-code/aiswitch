@@ -1487,9 +1487,45 @@
   {
     "id": "SRS-HAC-002",
     "priority": "P0",
-    "issue": 7,
+    "issue": 4,
     "test": "RT-SRS-HAC-002",
-    "criterion": "authorize membership, subscriptions and provider dispatch independently. SRS-HAC-003: identify AI actors and require explicit invocation or bounded configured triggers. SRS-HAC-004: scope shared credentials and reserve team budgets atomically. SRS-HAC-005: retrieve only authorized current context and preserve provenance. SRS-HAC-006: record actor and action in durable activity log. P0 tests: two human clients and two mocked models; invite/revoke, concurrent messages, reconnect, private context exclusion, shared key permission and budget race. Advanced collaboration remains phased. Tests planned, not executed.",
+    "criterion": "authorize membership, subscriptions and provider dispatch independently",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-HAC-003",
+    "priority": "P0",
+    "issue": 9,
+    "test": "RT-SRS-HAC-003",
+    "criterion": "identify AI actors and require explicit invocation or bounded configured triggers",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-HAC-004",
+    "priority": "P0",
+    "issue": 6,
+    "test": "RT-SRS-HAC-004",
+    "criterion": "scope shared credentials and reserve team budgets atomically",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-HAC-005",
+    "priority": "P0",
+    "issue": 8,
+    "test": "RT-SRS-HAC-005",
+    "criterion": "retrieve only authorized current context and preserve provenance",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-HAC-006",
+    "priority": "P0",
+    "issue": 7,
+    "test": "RT-SRS-HAC-006",
+    "criterion": "record actor and action in durable activity log",
     "source": "03-srs.md",
     "status": "planned"
   }
