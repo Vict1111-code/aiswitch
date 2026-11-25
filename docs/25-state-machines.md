@@ -45,3 +45,6 @@ Persist job and reservation atomically; lease job with monotonically increasing 
 
 ## Implementation gaps
 Physical DDL must add dispatch intent, job lease/fence, run revision, immutable ledger and canonical usage correction semantics; parent aggregation and typed SSE need implementation. JSON transition registry is a review artifact, not an executable engine. Tests above are planned, not run.
+
+## Parent aggregate clarification
+Parent status is queued/running/completed/partial/failed/cancelled only. Cancellation request is an independent boolean, not an aggregate state. Queued may transition directly to terminal when all children terminate before dispatch. Running begins when any child starts processing; never regress to queued. API and review SQL aligned. Runtime enforcement pending.
