@@ -72,25 +72,7 @@ P0 explicit provider/model/key selection. P1 policy filters eligible candidates 
 Single, parallel comparison, basic group conversation P0; bounded debate, moderator and dynamic participants P1; task graph P2. Parent run fans out independent children; each has own model, credential version, context manifest, reservation and cancellation. Parallel uses same authorized prompt snapshot where compatible; group uses ordered shared history and explicit mentions. Human-only messages do not trigger AI by default. Each child output labeled with model and actor. Advanced rounds bounded by count, tokens, time and money. Synthesis is an additional billable child. Preserve disagreements and partial failures.
 
 ## 11. Execution lifecycle
-```mermaid
-stateDiagram-v2
- [*] --> queued
- queued --> validating
- validating --> reserved
- validating --> failed
- reserved --> running
- reserved --> cancelled
- running --> completed
- running --> failed
- running --> cancel_requested
- running --> reconciliation_required
- cancel_requested --> cancelled
- cancel_requested --> reconciliation_required
- reconciliation_required --> completed
- reconciliation_required --> failed
- reconciliation_required --> cancelled
-```
-Separate financial reconciliation state from execution outcome in physical schema. Lease and heartbeat jobs; recheck permission and consent before dispatch. Retry only proven safe pre-dispatch failures or provider-supported idempotency; record linked attempt and separate billable reservation if needed. Parent aggregates completed/partial/failed/cancelled. Late usage after cancellation still recorded.
+See [execution and financial state machines](25-state-machines.md) for the normative proposed transition contract. Execution terminal states are completed, failed and cancelled; reconciliation_required belongs only to financial accounting. Worker leases, fencing, dispatch intent and evidence-based retries follow that contract. Parent aggregates independent children; late usage does not change terminal execution.
 
 ## 12. Context and privacy
 Assemble exact source revisions per child; ACL before retrieval and dispatch, provider consent per destination. Include project instructions, authorized messages and curated facts P0; semantic retrieval P1. Context manifest records provenance, token estimate, provider, policy and consent. Treat retrieved text as untrusted data. Private content excluded by default. Provider-specific role mapping preserves instruction hierarchy. Cache only within authorized tenant/scope/revision/model/policy; provider caching opt-in. No claim of provider retention guarantees without verification.

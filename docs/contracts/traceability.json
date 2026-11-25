@@ -1,0 +1,1532 @@
+[
+  {
+    "id": "GW-001",
+    "priority": "P0",
+    "issue": 5,
+    "test": "RT-GW-001",
+    "criterion": "Register two keys for same provider; select each independently",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-002",
+    "priority": "P0",
+    "issue": 5,
+    "test": "RT-GW-002",
+    "criterion": "Mask credentials; browser and logs never receive secret",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-003",
+    "priority": "P0",
+    "issue": 5,
+    "test": "RT-GW-003",
+    "criterion": "Rotate/revoke key; new dispatch denied for revoked version",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-004",
+    "priority": "P0",
+    "issue": 5,
+    "test": "RT-GW-004",
+    "criterion": "Discover models or manually register when unsupported",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-005",
+    "priority": "P0",
+    "issue": 5,
+    "test": "RT-GW-005",
+    "criterion": "Reject unsupported modality/tool capability",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-006",
+    "priority": "P0",
+    "issue": 9,
+    "test": "RT-GW-006",
+    "criterion": "Normalize native OpenAI and Anthropic mock streams",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-007",
+    "priority": "P0",
+    "issue": 9,
+    "test": "RT-GW-007",
+    "criterion": "Compatible adapter handles OpenRouter/custom mock",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-008",
+    "priority": "P0",
+    "issue": 9,
+    "test": "RT-GW-008",
+    "criterion": "Two child streams progress concurrently",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-009",
+    "priority": "P0",
+    "issue": 9,
+    "test": "RT-GW-009",
+    "criterion": "Cancel one child without cancelling sibling",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-010",
+    "priority": "P0",
+    "issue": 7,
+    "test": "RT-GW-010",
+    "criterion": "Reconnect without duplicate durable messages",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-011",
+    "priority": "P0",
+    "issue": 9,
+    "test": "RT-GW-011",
+    "criterion": "Shared group mention targets authorized AI only",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-012",
+    "priority": "P0",
+    "issue": 9,
+    "test": "RT-GW-012",
+    "criterion": "Human-only message creates no paid call",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-013",
+    "priority": "P0",
+    "issue": 8,
+    "test": "RT-GW-013",
+    "criterion": "Private context excluded from shared dispatch",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-014",
+    "priority": "P0",
+    "issue": 8,
+    "test": "RT-GW-014",
+    "criterion": "Revoked membership/consent blocks queued dispatch",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-015",
+    "priority": "P0",
+    "issue": 6,
+    "test": "RT-GW-015",
+    "criterion": "Concurrent reservations respect local budget",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-016",
+    "priority": "P0",
+    "issue": 6,
+    "test": "RT-GW-016",
+    "criterion": "Usage settlement idempotent; unknown usage retained",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-017",
+    "priority": "P0",
+    "issue": 6,
+    "test": "RT-GW-017",
+    "criterion": "Unknown price handled explicitly",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-018",
+    "priority": "P0",
+    "issue": 5,
+    "test": "RT-GW-018",
+    "criterion": "Shared key requires scoped grant and payer policy",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-019",
+    "priority": "P0",
+    "issue": 5,
+    "test": "RT-GW-019",
+    "criterion": "Custom endpoint SSRF and redirect tests",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-020",
+    "priority": "P0",
+    "issue": 9,
+    "test": "RT-GW-020",
+    "criterion": "Ambiguous timeout does not blindly retry",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-021",
+    "priority": "P0",
+    "issue": 9,
+    "test": "RT-GW-021",
+    "criterion": "Provider error redacted and normalized",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-022",
+    "priority": "P0",
+    "issue": 6,
+    "test": "RT-GW-022",
+    "criterion": "Manual credit balance labeled estimate",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-023",
+    "priority": "P1",
+    "issue": 16,
+    "test": "RT-GW-023",
+    "criterion": "Automatic routing respects capability and budget",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-024",
+    "priority": "P1",
+    "issue": 16,
+    "test": "RT-GW-024",
+    "criterion": "Fallback requires explicit allowed destination/payer",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-025",
+    "priority": "P1",
+    "issue": 16,
+    "test": "RT-GW-025",
+    "criterion": "Debate stops at configured round/cost cap",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-026",
+    "priority": "P1",
+    "issue": 16,
+    "test": "RT-GW-026",
+    "criterion": "Local bridge pairing and revocation",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-027",
+    "priority": "P1",
+    "issue": 12,
+    "test": "RT-GW-027",
+    "criterion": "Context cache cannot cross tenant boundaries",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "GW-028",
+    "priority": "P2",
+    "issue": 16,
+    "test": "RT-GW-028",
+    "criterion": "Agent tool calls require scoped approval",
+    "source": "07-ai-gateway.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-001",
+    "priority": "P0",
+    "issue": 4,
+    "test": "RT-HAC-001",
+    "criterion": "Two invited members access same project; outsider denied",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-002",
+    "priority": "P0",
+    "issue": 4,
+    "test": "RT-HAC-002",
+    "criterion": "Invite expires and cannot be replayed",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-003",
+    "priority": "P0",
+    "issue": 7,
+    "test": "RT-HAC-003",
+    "criterion": "Both humans see persisted messages and AI responses",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-004",
+    "priority": "P0",
+    "issue": 10,
+    "test": "RT-HAC-004",
+    "criterion": "Two AI participants respond with distinct identities",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-005",
+    "priority": "P0",
+    "issue": 7,
+    "test": "RT-HAC-005",
+    "criterion": "Mention triggers only intended authorized participant",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-006",
+    "priority": "P0",
+    "issue": 8,
+    "test": "RT-HAC-006",
+    "criterion": "Both users retrieve same approved project facts",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-007",
+    "priority": "P0",
+    "issue": 7,
+    "test": "RT-HAC-007",
+    "criterion": "Reconnect recovers ordered messages without duplicates",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-008",
+    "priority": "P0",
+    "issue": 4,
+    "test": "RT-HAC-008",
+    "criterion": "Revoked member loses subsequent access",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-009",
+    "priority": "P0",
+    "issue": 5,
+    "test": "RT-HAC-009",
+    "criterion": "Personal key remains private; shared key usable only by authorized roles",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-010",
+    "priority": "P0",
+    "issue": 6,
+    "test": "RT-HAC-010",
+    "criterion": "Concurrent reservations cannot exceed configured local budget",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-011",
+    "priority": "P0",
+    "issue": 7,
+    "test": "RT-HAC-011",
+    "criterion": "Activity records actor, action and timestamp",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-012",
+    "priority": "P1",
+    "issue": 12,
+    "test": "RT-HAC-012",
+    "criterion": "Presence expires after disconnect",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-013",
+    "priority": "P1",
+    "issue": 12,
+    "test": "RT-HAC-013",
+    "criterion": "Room access follows membership",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-014",
+    "priority": "P1",
+    "issue": 12,
+    "test": "RT-HAC-014",
+    "criterion": "New approved revision becomes retrievable; stale version flagged",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-015",
+    "priority": "P1",
+    "issue": 12,
+    "test": "RT-HAC-015",
+    "criterion": "Proposal cannot become approved without authorized action",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-016",
+    "priority": "P1",
+    "issue": 12,
+    "test": "RT-HAC-016",
+    "criterion": "Onboarding summary links to current sources",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-017",
+    "priority": "P1",
+    "issue": 12,
+    "test": "RT-HAC-017",
+    "criterion": "Assignment identifies human or agent and accountable owner",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-018",
+    "priority": "P1",
+    "issue": 12,
+    "test": "RT-HAC-018",
+    "criterion": "Task transitions synchronize across clients",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-019",
+    "priority": "P1",
+    "issue": 12,
+    "test": "RT-HAC-019",
+    "criterion": "Duplicate candidate flagged for review",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-020",
+    "priority": "P1",
+    "issue": 12,
+    "test": "RT-HAC-020",
+    "criterion": "Handoff includes artifacts, status and unresolved issues",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-021",
+    "priority": "P1",
+    "issue": 14,
+    "test": "RT-HAC-021",
+    "criterion": "Concurrent human edits converge",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-022",
+    "priority": "P1",
+    "issue": 14,
+    "test": "RT-HAC-022",
+    "criterion": "Stale AI patch rejected or rebased with review",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-023",
+    "priority": "P1",
+    "issue": 14,
+    "test": "RT-HAC-023",
+    "criterion": "Preview access scoped to project",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-024",
+    "priority": "P1",
+    "issue": 13,
+    "test": "RT-HAC-024",
+    "criterion": "Sources and claims shared with authorized participants",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-025",
+    "priority": "P1",
+    "issue": 12,
+    "test": "RT-HAC-025",
+    "criterion": "Report links to actual activity",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-026",
+    "priority": "P2",
+    "issue": 18,
+    "test": "RT-HAC-026",
+    "criterion": "Voice requires participant consent",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-027",
+    "priority": "P2",
+    "issue": 18,
+    "test": "RT-HAC-027",
+    "criterion": "Screen sharing requires explicit start/stop",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-028",
+    "priority": "P2",
+    "issue": 18,
+    "test": "RT-HAC-028",
+    "criterion": "AI attendee clearly identified and recording consent enforced",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-029",
+    "priority": "P2",
+    "issue": 18,
+    "test": "RT-HAC-029",
+    "criterion": "Concurrent board changes converge",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "HAC-030",
+    "priority": "P3",
+    "issue": 18,
+    "test": "RT-HAC-030",
+    "criterion": "Presence and room navigation respect privacy",
+    "source": "19-human-ai-collaboration.md",
+    "status": "planned"
+  },
+  {
+    "id": "MMC-001",
+    "priority": "P0",
+    "issue": 10,
+    "test": "RT-MMC-001",
+    "criterion": "Verify single chat",
+    "source": "18-multi-model-chat.md",
+    "status": "planned"
+  },
+  {
+    "id": "MMC-002",
+    "priority": "P0",
+    "issue": 10,
+    "test": "RT-MMC-002",
+    "criterion": "Verify switch model",
+    "source": "18-multi-model-chat.md",
+    "status": "planned"
+  },
+  {
+    "id": "MMC-003",
+    "priority": "P0",
+    "issue": 10,
+    "test": "RT-MMC-003",
+    "criterion": "Verify parallel responses",
+    "source": "18-multi-model-chat.md",
+    "status": "planned"
+  },
+  {
+    "id": "MMC-004",
+    "priority": "P0",
+    "issue": 10,
+    "test": "RT-MMC-004",
+    "criterion": "Verify side-by-side comparison",
+    "source": "18-multi-model-chat.md",
+    "status": "planned"
+  },
+  {
+    "id": "MMC-005",
+    "priority": "P0",
+    "issue": 10,
+    "test": "RT-MMC-005",
+    "criterion": "Verify basic group conversation",
+    "source": "18-multi-model-chat.md",
+    "status": "planned"
+  },
+  {
+    "id": "MMC-006",
+    "priority": "P0",
+    "issue": 10,
+    "test": "RT-MMC-006",
+    "criterion": "Verify basic shared context",
+    "source": "18-multi-model-chat.md",
+    "status": "planned"
+  },
+  {
+    "id": "MMC-007",
+    "priority": "P0",
+    "issue": 10,
+    "test": "RT-MMC-007",
+    "criterion": "Verify @mentions",
+    "source": "18-multi-model-chat.md",
+    "status": "planned"
+  },
+  {
+    "id": "MMC-008",
+    "priority": "P1",
+    "issue": 10,
+    "test": "RT-MMC-008",
+    "criterion": "Verify dynamic participants",
+    "source": "18-multi-model-chat.md",
+    "status": "planned"
+  },
+  {
+    "id": "MMC-009",
+    "priority": "P1",
+    "issue": 16,
+    "test": "RT-MMC-009",
+    "criterion": "Verify bounded rounds",
+    "source": "18-multi-model-chat.md",
+    "status": "planned"
+  },
+  {
+    "id": "MMC-010",
+    "priority": "P1",
+    "issue": 16,
+    "test": "RT-MMC-010",
+    "criterion": "Verify critique/debate",
+    "source": "18-multi-model-chat.md",
+    "status": "planned"
+  },
+  {
+    "id": "MMC-011",
+    "priority": "P1",
+    "issue": 16,
+    "test": "RT-MMC-011",
+    "criterion": "Verify moderator/synthesis",
+    "source": "18-multi-model-chat.md",
+    "status": "planned"
+  },
+  {
+    "id": "MMC-012",
+    "priority": "P1",
+    "issue": 16,
+    "test": "RT-MMC-012",
+    "criterion": "Verify roles",
+    "source": "18-multi-model-chat.md",
+    "status": "planned"
+  },
+  {
+    "id": "MMC-013",
+    "priority": "P2",
+    "issue": 16,
+    "test": "RT-MMC-013",
+    "criterion": "Verify collaborative execution",
+    "source": "18-multi-model-chat.md",
+    "status": "planned"
+  },
+  {
+    "id": "MMC-014",
+    "priority": "P1",
+    "issue": 16,
+    "test": "RT-MMC-014",
+    "criterion": "Verify automatic routing",
+    "source": "18-multi-model-chat.md",
+    "status": "planned"
+  },
+  {
+    "id": "MMC-015",
+    "priority": "P0",
+    "issue": 6,
+    "test": "RT-MMC-015",
+    "criterion": "Verify per-model costs",
+    "source": "18-multi-model-chat.md",
+    "status": "planned"
+  },
+  {
+    "id": "MMC-016",
+    "priority": "P0",
+    "issue": 6,
+    "test": "RT-MMC-016",
+    "criterion": "Verify conversation budget",
+    "source": "18-multi-model-chat.md",
+    "status": "planned"
+  },
+  {
+    "id": "MMC-017",
+    "priority": "P1",
+    "issue": 10,
+    "test": "RT-MMC-017",
+    "criterion": "Verify independent/shared context",
+    "source": "18-multi-model-chat.md",
+    "status": "planned"
+  },
+  {
+    "id": "MMC-018",
+    "priority": "P0",
+    "issue": 10,
+    "test": "RT-MMC-018",
+    "criterion": "Verify individual cancellation",
+    "source": "18-multi-model-chat.md",
+    "status": "planned"
+  },
+  {
+    "id": "MMC-019",
+    "priority": "P1",
+    "issue": 12,
+    "test": "RT-MMC-019",
+    "criterion": "Verify branching",
+    "source": "18-multi-model-chat.md",
+    "status": "planned"
+  },
+  {
+    "id": "MMC-020",
+    "priority": "P1",
+    "issue": 12,
+    "test": "RT-MMC-020",
+    "criterion": "Verify templates",
+    "source": "18-multi-model-chat.md",
+    "status": "planned"
+  },
+  {
+    "id": "CTX-001",
+    "priority": "P0",
+    "issue": 8,
+    "test": "RT-CTX-001",
+    "criterion": "private record excluded from shared query",
+    "source": "20-shared-intelligence.md",
+    "status": "planned"
+  },
+  {
+    "id": "CTX-002",
+    "priority": "P0",
+    "issue": 8,
+    "test": "RT-CTX-002",
+    "criterion": "approved revision supersedes old context",
+    "source": "20-shared-intelligence.md",
+    "status": "planned"
+  },
+  {
+    "id": "CTX-003",
+    "priority": "P0",
+    "issue": 8,
+    "test": "RT-CTX-003",
+    "criterion": "revoked access blocks retrieval and dispatch",
+    "source": "20-shared-intelligence.md",
+    "status": "planned"
+  },
+  {
+    "id": "CTX-004",
+    "priority": "P1",
+    "issue": 12,
+    "test": "RT-CTX-004",
+    "criterion": "duplicate indexing event is idempotent",
+    "source": "20-shared-intelligence.md",
+    "status": "planned"
+  },
+  {
+    "id": "CTX-005",
+    "priority": "P0",
+    "issue": 8,
+    "test": "RT-CTX-005",
+    "criterion": "deleted source invalidates derived retrieval",
+    "source": "20-shared-intelligence.md",
+    "status": "planned"
+  },
+  {
+    "id": "CTX-006",
+    "priority": "P0",
+    "issue": 8,
+    "test": "RT-CTX-006",
+    "criterion": "context manifest identifies sources and token estimate",
+    "source": "20-shared-intelligence.md",
+    "status": "planned"
+  },
+  {
+    "id": "CTX-007",
+    "priority": "P1",
+    "issue": 12,
+    "test": "RT-CTX-007",
+    "criterion": "unapproved AI proposal cannot override decision",
+    "source": "20-shared-intelligence.md",
+    "status": "planned"
+  },
+  {
+    "id": "CTX-008",
+    "priority": "P0",
+    "issue": 8,
+    "test": "RT-CTX-008",
+    "criterion": "provider consent enforced",
+    "source": "20-shared-intelligence.md",
+    "status": "planned"
+  },
+  {
+    "id": "CTX-009",
+    "priority": "P1",
+    "issue": 12,
+    "test": "RT-CTX-009",
+    "criterion": "stale index flagged",
+    "source": "20-shared-intelligence.md",
+    "status": "planned"
+  },
+  {
+    "id": "CTX-010",
+    "priority": "P1",
+    "issue": 12,
+    "test": "RT-CTX-010",
+    "criterion": "cache cannot cross tenant boundaries",
+    "source": "20-shared-intelligence.md",
+    "status": "planned"
+  },
+  {
+    "id": "SM-01",
+    "priority": "P0",
+    "issue": 9,
+    "test": "RT-SM-01",
+    "criterion": "queued cancellation: cancelled; pending reservation released",
+    "source": "25-state-machines.md",
+    "status": "planned"
+  },
+  {
+    "id": "SM-02",
+    "priority": "P0",
+    "issue": 9,
+    "test": "RT-SM-02",
+    "criterion": "pre-dispatch authorization revoked: failed; release only if no dispatch proven",
+    "source": "25-state-machines.md",
+    "status": "planned"
+  },
+  {
+    "id": "SM-03",
+    "priority": "P0",
+    "issue": 9,
+    "test": "RT-SM-03",
+    "criterion": "worker crash after dispatch intent: no blind retry; reconciliation_required",
+    "source": "25-state-machines.md",
+    "status": "planned"
+  },
+  {
+    "id": "SM-04",
+    "priority": "P0",
+    "issue": 9,
+    "test": "RT-SM-04",
+    "criterion": "one child cancelled: siblings unaffected",
+    "source": "25-state-machines.md",
+    "status": "planned"
+  },
+  {
+    "id": "SM-05",
+    "priority": "P0",
+    "issue": 6,
+    "test": "RT-SM-05",
+    "criterion": "late provider usage after cancellation: settle without changing execution terminal",
+    "source": "25-state-machines.md",
+    "status": "planned"
+  },
+  {
+    "id": "SM-06",
+    "priority": "P0",
+    "issue": 6,
+    "test": "RT-SM-06",
+    "criterion": "duplicate usage event: no second ledger mutation",
+    "source": "25-state-machines.md",
+    "status": "planned"
+  },
+  {
+    "id": "SM-07",
+    "priority": "P0",
+    "issue": 6,
+    "test": "RT-SM-07",
+    "criterion": "concurrent budget reservations: all scopes locked; reject excess",
+    "source": "25-state-machines.md",
+    "status": "planned"
+  },
+  {
+    "id": "SM-08",
+    "priority": "P0",
+    "issue": 6,
+    "test": "RT-SM-08",
+    "criterion": "actual exceeds estimate: record actual; block future excess",
+    "source": "25-state-machines.md",
+    "status": "planned"
+  },
+  {
+    "id": "SM-09",
+    "priority": "P0",
+    "issue": 9,
+    "test": "RT-SM-09",
+    "criterion": "completion races cancellation: first committed terminal wins; late usage still accepted",
+    "source": "25-state-machines.md",
+    "status": "planned"
+  },
+  {
+    "id": "SM-10",
+    "priority": "P0",
+    "issue": 9,
+    "test": "RT-SM-10",
+    "criterion": "expired worker lease: fencing token rejects stale worker writes",
+    "source": "25-state-machines.md",
+    "status": "planned"
+  },
+  {
+    "id": "SM-11",
+    "priority": "P0",
+    "issue": 6,
+    "test": "RT-SM-11",
+    "criterion": "unknown price: reject capped paid dispatch",
+    "source": "25-state-machines.md",
+    "status": "planned"
+  },
+  {
+    "id": "SM-12",
+    "priority": "P0",
+    "issue": 9,
+    "test": "RT-SM-12",
+    "criterion": "same idempotency key different hash: 409; no dispatch",
+    "source": "25-state-machines.md",
+    "status": "planned"
+  },
+  {
+    "id": "SM-13",
+    "priority": "P0",
+    "issue": 9,
+    "test": "RT-SM-13",
+    "criterion": "all children terminal mixed outcomes: parent partial if any completed, otherwise failed if any failed, else cancelled",
+    "source": "25-state-machines.md",
+    "status": "planned"
+  },
+  {
+    "id": "SM-14",
+    "priority": "P0",
+    "issue": 6,
+    "test": "RT-SM-14",
+    "criterion": "reconciliation without evidence: retain reservation",
+    "source": "25-state-machines.md",
+    "status": "planned"
+  },
+  {
+    "id": "SM-15",
+    "priority": "P0",
+    "issue": 6,
+    "test": "RT-SM-15",
+    "criterion": "late correction after settlement: append compensating ledger entry; no duplicate canonical cost",
+    "source": "25-state-machines.md",
+    "status": "planned"
+  },
+  {
+    "id": "SM-16",
+    "priority": "P0",
+    "issue": 9,
+    "test": "RT-SM-16",
+    "criterion": "replayed terminal event: one durable terminal, transport dedup",
+    "source": "25-state-machines.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-AUTH-001",
+    "priority": "P0",
+    "issue": 4,
+    "test": "RT-SRS-AUTH-001",
+    "criterion": "The system shall create a personal workspace exactly once after verified registration.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-AUTH-002",
+    "priority": "P0",
+    "issue": 4,
+    "test": "RT-SRS-AUTH-002",
+    "criterion": "The system shall reject expired or revoked sessions and authorize every resource request.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-AUTH-003",
+    "priority": "P0",
+    "issue": 4,
+    "test": "RT-SRS-AUTH-003",
+    "criterion": "The system shall support email/password and Google/GitHub sign-in; recovery tokens are single-use and expire.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-AIG-001",
+    "priority": "P0",
+    "issue": 9,
+    "test": "RT-SRS-AIG-001",
+    "criterion": "The system shall normalize provider requests and streaming events without exposing secrets.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-AIG-002",
+    "priority": "P0",
+    "issue": 9,
+    "test": "RT-SRS-AIG-002",
+    "criterion": "The system shall validate model capabilities before dispatch; support OpenAI, Anthropic, OpenRouter and compatible custom endpoints.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-AIG-003",
+    "priority": "P0",
+    "issue": 9,
+    "test": "RT-SRS-AIG-003",
+    "criterion": "The system shall normalize provider errors and usage; cancellation stops local processing and requests upstream cancellation where supported.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-KEY-001",
+    "priority": "P0",
+    "issue": 5,
+    "test": "RT-SRS-KEY-001",
+    "criterion": "The system shall accept named multiple credentials per provider; encrypt before persistence.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-KEY-002",
+    "priority": "P0",
+    "issue": 5,
+    "test": "RT-SRS-KEY-002",
+    "criterion": "The system shall return only alias, status and masked identifier; test, disable, rotate and delete credentials.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-KEY-003",
+    "priority": "P0",
+    "issue": 5,
+    "test": "RT-SRS-KEY-003",
+    "criterion": "The system shall validate custom endpoint destinations against egress policy; block private addresses except through approved local bridge.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-MOD-001",
+    "priority": "P0",
+    "issue": 5,
+    "test": "RT-SRS-MOD-001",
+    "criterion": "The system shall discover models when supported and allow manual identifiers.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-MOD-002",
+    "priority": "P0",
+    "issue": 5,
+    "test": "RT-SRS-MOD-002",
+    "criterion": "The system shall store capabilities, context/output limits, pricing version and enabled state.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-MOD-003",
+    "priority": "P0",
+    "issue": 5,
+    "test": "RT-SRS-MOD-003",
+    "criterion": "The system shall reject incompatible parameters; P1 automatic routing must respect consent, budget and eligible models.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-CHAT-001",
+    "priority": "P0",
+    "issue": 7,
+    "test": "RT-SRS-CHAT-001",
+    "criterion": "The system shall persist user message before dispatch and associate each response with model and run.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-CHAT-002",
+    "priority": "P0",
+    "issue": 7,
+    "test": "RT-SRS-CHAT-002",
+    "criterion": "The system shall stream ordered deltas; support stop, edit/regenerate, rename, search, archive and delete.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-CHAT-003",
+    "priority": "P0",
+    "issue": 7,
+    "test": "RT-SRS-CHAT-003",
+    "criterion": "The system shall switch model using authorized context; preserve partial output and terminal status.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-MMC-001",
+    "priority": "mixed",
+    "issue": 10,
+    "test": "RT-SRS-MMC-001",
+    "criterion": "The system shall fan out identical authorized prompt to selected participants concurrently; isolate streams, failures and cancellation.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-MMC-002",
+    "priority": "mixed",
+    "issue": 10,
+    "test": "RT-SRS-MMC-002",
+    "criterion": "The system shall support P0 basic group mode, mentions and authorized shared history; P1 bounded autonomous turns, roles, moderator and debate preserve disagreement and evidence.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-MMC-003",
+    "priority": "mixed",
+    "issue": 10,
+    "test": "RT-SRS-MMC-003",
+    "criterion": "The system shall support P1 automatic routing that selects eligible models; P2 collaborative engineering uses approved task graph. Preserve MMC-001–020 in companion specification.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-PROJ-001",
+    "priority": "P0",
+    "issue": 4,
+    "test": "RT-SRS-PROJ-001",
+    "criterion": "The system shall create, read, update and delete projects within workspace.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-PROJ-002",
+    "priority": "P0",
+    "issue": 4,
+    "test": "RT-SRS-PROJ-002",
+    "criterion": "The system shall scope conversations and instructions to project; P0 basic project budgets; P1 files, tasks, repository and extended knowledge.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-PROJ-003",
+    "priority": "P0",
+    "issue": 4,
+    "test": "RT-SRS-PROJ-003",
+    "criterion": "The system shall reject cross-project resource references without authorization.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-CODE-001",
+    "priority": "P1",
+    "issue": 14,
+    "test": "RT-SRS-CODE-001",
+    "criterion": "The system shall index approved repository files; provide editor, terminal and diffs.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-CODE-002",
+    "priority": "P1",
+    "issue": 14,
+    "test": "RT-SRS-CODE-002",
+    "criterion": "The system shall apply proposed patch only to expected revision; reject stale patches.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-CODE-003",
+    "priority": "P1",
+    "issue": 14,
+    "test": "RT-SRS-CODE-003",
+    "criterion": "The system shall run commands and tests in isolated sandbox; checkpoint changes and support rollback.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-BUILD-001",
+    "priority": "mixed",
+    "issue": 15,
+    "test": "RT-SRS-BUILD-001",
+    "criterion": "The system shall generate editable project scaffold and source from approved requirements.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-BUILD-002",
+    "priority": "mixed",
+    "issue": 15,
+    "test": "RT-SRS-BUILD-002",
+    "criterion": "The system shall build and preview in isolated runtime; report errors and export source.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-BUILD-003",
+    "priority": "mixed",
+    "issue": 15,
+    "test": "RT-SRS-BUILD-003",
+    "criterion": "The system shall p2 support Expo/React Native and Flutter builds subject to runtime availability.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-RES-001",
+    "priority": "P1",
+    "issue": 13,
+    "test": "RT-SRS-RES-001",
+    "criterion": "The system shall create bounded research plan, retrieve and timestamp sources.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-RES-002",
+    "priority": "P1",
+    "issue": 13,
+    "test": "RT-SRS-RES-002",
+    "criterion": "The system shall associate factual claims with retrieved evidence; flag unsupported or conflicting claims.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-RES-003",
+    "priority": "P1",
+    "issue": 13,
+    "test": "RT-SRS-RES-003",
+    "criterion": "The system shall export report and bibliography; stop at time/cost limits.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-AGENT-001",
+    "priority": "mixed",
+    "issue": 16,
+    "test": "RT-SRS-AGENT-001",
+    "criterion": "The system shall persist agent configuration, steps, tool results and execution state.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-AGENT-002",
+    "priority": "mixed",
+    "issue": 16,
+    "test": "RT-SRS-AGENT-002",
+    "criterion": "The system shall enforce tool allowlists, time/step/cost caps and approval gates.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-AGENT-003",
+    "priority": "mixed",
+    "issue": 16,
+    "test": "RT-SRS-AGENT-003",
+    "criterion": "The system shall support pause/resume/cancel; P2 coordinate multiple agents with isolated task state.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-MEM-001",
+    "priority": "mixed",
+    "issue": 8,
+    "test": "RT-SRS-MEM-001",
+    "criterion": "The system shall p0 apply project instructions; P1 index scoped documents and retrieve relevant chunks with provenance.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-MEM-002",
+    "priority": "mixed",
+    "issue": 8,
+    "test": "RT-SRS-MEM-002",
+    "criterion": "The system shall support editing/deletion and retention; exclude unrelated workspace data.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-MEM-003",
+    "priority": "mixed",
+    "issue": 8,
+    "test": "RT-SRS-MEM-003",
+    "criterion": "The system shall temporary sessions must not create persistent memory records.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-FILE-001",
+    "priority": "P1",
+    "issue": 12,
+    "test": "RT-SRS-FILE-001",
+    "criterion": "The system shall validate size, type and content before accepting upload.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-FILE-002",
+    "priority": "P1",
+    "issue": 12,
+    "test": "RT-SRS-FILE-002",
+    "criterion": "The system shall store ownership metadata and authorize download; isolate executable previews.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-FILE-003",
+    "priority": "P1",
+    "issue": 12,
+    "test": "RT-SRS-FILE-003",
+    "criterion": "The system shall version artifacts and export supported formats.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-GIT-001",
+    "priority": "P1",
+    "issue": 14,
+    "test": "RT-SRS-GIT-001",
+    "criterion": "The system shall use scoped GitHub authorization to import repositories and inspect revisions.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-GIT-002",
+    "priority": "P1",
+    "issue": 14,
+    "test": "RT-SRS-GIT-002",
+    "criterion": "The system shall create branches, commits and PRs only within granted permissions and approval policy.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-GIT-003",
+    "priority": "P1",
+    "issue": 14,
+    "test": "RT-SRS-GIT-003",
+    "criterion": "The system shall respect protected branches and report CI results accurately.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-COST-001",
+    "priority": "P0",
+    "issue": 6,
+    "test": "RT-SRS-COST-001",
+    "criterion": "The system shall record every dispatched request and provider usage when available.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-COST-002",
+    "priority": "P0",
+    "issue": 6,
+    "test": "RT-SRS-COST-002",
+    "criterion": "The system shall atomically reserve estimated maximum cost across applicable budgets before dispatch.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-COST-003",
+    "priority": "P0",
+    "issue": 6,
+    "test": "RT-SRS-COST-003",
+    "criterion": "The system shall reconcile actual usage, retain uncertain charges for reconciliation and distinguish estimated from reported costs.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-PLUG-001",
+    "priority": "P1",
+    "issue": 17,
+    "test": "RT-SRS-PLUG-001",
+    "criterion": "The system shall register integrations and discover capabilities; encrypt OAuth tokens.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-PLUG-002",
+    "priority": "P1",
+    "issue": 17,
+    "test": "RT-SRS-PLUG-002",
+    "criterion": "The system shall authorize every tool call by workspace and scope; audit result.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-PLUG-003",
+    "priority": "P1",
+    "issue": 17,
+    "test": "RT-SRS-PLUG-003",
+    "criterion": "The system shall revoke connection and deny subsequent calls.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-DEPLOY-001",
+    "priority": "mixed",
+    "issue": 17,
+    "test": "RT-SRS-DEPLOY-001",
+    "criterion": "The system shall generate deployment configuration (P1); connect approved deployment provider (P2).",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-DEPLOY-002",
+    "priority": "mixed",
+    "issue": 17,
+    "test": "RT-SRS-DEPLOY-002",
+    "criterion": "The system shall require explicit approval for production release; bind approval to exact revision and target.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-DEPLOY-003",
+    "priority": "mixed",
+    "issue": 17,
+    "test": "RT-SRS-DEPLOY-003",
+    "criterion": "The system shall report build status, redact logs and support provider rollback where available.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-AUTO-001",
+    "priority": "P2",
+    "issue": 17,
+    "test": "RT-SRS-AUTO-001",
+    "criterion": "The system shall persist workflow definitions, triggers and execution history.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-AUTO-002",
+    "priority": "P2",
+    "issue": 17,
+    "test": "RT-SRS-AUTO-002",
+    "criterion": "The system shall deduplicate trigger delivery and enforce step/time/budget limits.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-AUTO-003",
+    "priority": "P2",
+    "issue": 17,
+    "test": "RT-SRS-AUTO-003",
+    "criterion": "The system shall retry only safe or idempotent steps; notify failures.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-LIB-001",
+    "priority": "mixed",
+    "issue": 7,
+    "test": "RT-SRS-LIB-001",
+    "criterion": "The system shall p0 save and retrieve scoped prompts.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-LIB-002",
+    "priority": "mixed",
+    "issue": 7,
+    "test": "RT-SRS-LIB-002",
+    "criterion": "The system shall p1 validate template variables, categorize and import/export skills.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-LIB-003",
+    "priority": "mixed",
+    "issue": 7,
+    "test": "RT-SRS-LIB-003",
+    "criterion": "The system shall p2 version and share templates with permission checks.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-TEAM-001",
+    "priority": "mixed",
+    "issue": 4,
+    "test": "RT-SRS-TEAM-001",
+    "criterion": "The system shall create organizations and invite members with scoped roles.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-TEAM-002",
+    "priority": "mixed",
+    "issue": 4,
+    "test": "RT-SRS-TEAM-002",
+    "criterion": "The system shall enforce shared project and budget permissions.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-TEAM-003",
+    "priority": "mixed",
+    "issue": 4,
+    "test": "RT-SRS-TEAM-003",
+    "criterion": "The system shall record membership changes and revoke subsequent access immediately.",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-HAC-001",
+    "priority": "P0",
+    "issue": 7,
+    "test": "RT-SRS-HAC-001",
+    "criterion": "persist and sequence room events before broadcast; reconnect without duplicate effects",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-HAC-002",
+    "priority": "P0",
+    "issue": 4,
+    "test": "RT-SRS-HAC-002",
+    "criterion": "authorize membership, subscriptions and provider dispatch independently",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-HAC-003",
+    "priority": "P0",
+    "issue": 9,
+    "test": "RT-SRS-HAC-003",
+    "criterion": "identify AI actors and require explicit invocation or bounded configured triggers",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-HAC-004",
+    "priority": "P0",
+    "issue": 6,
+    "test": "RT-SRS-HAC-004",
+    "criterion": "scope shared credentials and reserve team budgets atomically",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-HAC-005",
+    "priority": "P0",
+    "issue": 8,
+    "test": "RT-SRS-HAC-005",
+    "criterion": "retrieve only authorized current context and preserve provenance",
+    "source": "03-srs.md",
+    "status": "planned"
+  },
+  {
+    "id": "SRS-HAC-006",
+    "priority": "P0",
+    "issue": 7,
+    "test": "RT-SRS-HAC-006",
+    "criterion": "record actor and action in durable activity log",
+    "source": "03-srs.md",
+    "status": "planned"
+  }
+]

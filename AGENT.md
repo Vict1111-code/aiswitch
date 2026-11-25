@@ -34,3 +34,36 @@ Reconciled PRD/SRS priorities, event vocabulary, index and backlog coverage; add
 
 ## Phase 0.10 — Planning baseline handoff
 PR #1 contains documentation only; final inventory 26 files. Merge as conditional planning baseline, not implementation approval. Start F01 (issue #2) from master after verified merge; review ADRs, resolve API/schema and state-machine gaps, validate contracts and traceability. F02 scaffolding follows F01. Keep issues #2–18 open until acceptance evidence exists. No paid calls or provisioning authorized by this baseline.
+
+## Phase 1.1 — F01 engineering review
+PR #1 merged into master at f6f1406. Branch feat/f01-engineering-review; docs/23-engineering-review.md records recommendations for all 17 ADRs and remaining gates. ADRs remain proposed; no implementation or validation yet. Next complete P0 API contracts and independent lint; then physical schema and traceability. Keep issue #2 open.
+
+## Phase 1.2 — API expansion
+OpenAPI v1.1.0: 54 operations, 62 schemas; unique IDs and component refs checked. Added typed pages, room project binding, invite proof, rotation, tickets, endpoints/manual models, lifecycle routes and child financial status. Independent lint, typed event payloads, consent scope, pagination details and runtime/client generation remain pending. Next physical database schema and migrations. F01 remains open; draft PR #19.
+
+## Phase 1.3 — Physical schema draft
+Added docs/24-physical-schema.md and docs/sql/p0-core-review.sql (14 core tables). Review-only partial DDL, no database execution or deployment. Remaining P0 entities, ACL, vault, ledger, transaction functions and SQL tests pending. Next execution/financial state machines; F01 remains open.
+
+## Phase 1.4 — State machines
+Added docs/25-state-machines.md and docs/contracts/state-machines.json; gateway section 11 reconciled. 16 planned acceptance cases; execution and financial lifecycles independent, dispatch intent and fencing, no blind retry, late usage/corrections. No runtime tests. DDL and typed events still incomplete. Next P0 requirements-to-test traceability. F01 open, PR #19 draft.
+
+## Phase 1.5 — Traceability
+Added docs/26-traceability.md and docs/contracts/traceability.json: 166 unique identified requirements/cases mapped to proposed issue and test IDs. All planned, no executed tests. Mixed priorities, unnumbered PRD clauses, NFRs, API/DB test crosswalk and detailed assertions pending. Next independent technical validation; F01 open, PR #19 draft.
+
+## Phase 1.6 — Static technical validation
+Readback found four missing SRS-HAC IDs; corrected registry and matrix to 170 records (92 P0). docs/27-technical-validation.md records static checks and blockers. External OpenAPI/SQL validators and link crawl not run. F01 blocked; PR #19 draft. Next remediate blockers rather than close F01.
+
+## Phase 1.6A — API and parent-state remediation
+OpenAPI v1.2.0: 59 operations, 77 schemas, 12 typed event variants, structured consent, page parameters and five CRUD operations. Parent status aligned in API, review SQL and JSON registry; cancellation flag separate. B01 partial, B03 specification aligned pending validation. B02 physical schema next. External validation not run; F01 remains blocked.
+
+## Phase 1.6B — Expanded physical schema
+Review DDL now 39 tables; added identity ACL, gateway vault metadata, context, pricing/jobs/ledger and supporting tables. No SQL execution, no deployed migration. B02 partial; next transaction contracts, scoped authorization and cross-resource integrity, then disposable validation. F01 blocked; PR #19 draft.
+
+## Phase 1.6C — Transaction contracts
+Readback detected SQL corruption from previous string replacement (currency regex and dollar quotes); repaired. Added docs/28-transaction-contracts.md (10 operations, 14 planned tests) and docs/sql/p0-transaction-review.sql (2 internal primitives, no grants). Eight operations remain specification-only. No database execution. Next scoped authorization, budget integrity and executable validation; F01 blocked.
+
+## Phase 1.6D — Authorization and integrity
+Added room owner/visibility, typed budget scope FKs, overlapping-period exclusion (btree_gist), separate vault schema and docs/29-authorization-integrity.md. 12 planned authorization tests. No access-granting RLS policies or dispatch enforcement implemented; no SQL executed. Next prioritize executable disposable validation and remediation, not more documentation. F01 blocked.
+
+## Phase 1.6E/F — Executable validation
+Added Python contract validator, PostgreSQL smoke tests and GitHub Actions workflow. Run 45615625677: postgres job passed schema installation, transaction functions and smoke tests; contracts failed at MMC-002 after OpenAPI and state graph checks passed. All 19 abbreviated MMC IDs normalized in source; static readback confirms all 20 MMC IDs present. Rerun pending. Smoke tests are privileged fixture checks, not full authorization or concurrency evidence. F01 remains blocked.

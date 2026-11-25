@@ -1,0 +1,78 @@
+{
+  "version": "1.0",
+  "execution": {
+    "queued": [
+      "validating",
+      "cancelled"
+    ],
+    "validating": [
+      "reserved",
+      "failed",
+      "cancelled"
+    ],
+    "reserved": [
+      "running",
+      "failed",
+      "cancelled"
+    ],
+    "running": [
+      "completed",
+      "failed",
+      "cancel_requested"
+    ],
+    "cancel_requested": [
+      "completed",
+      "failed",
+      "cancelled"
+    ],
+    "completed": [],
+    "failed": [],
+    "cancelled": []
+  },
+  "financial": {
+    "pending": [
+      "reserved",
+      "released"
+    ],
+    "reserved": [
+      "settled",
+      "released",
+      "reconciliation_required"
+    ],
+    "reconciliation_required": [
+      "settled",
+      "released"
+    ],
+    "settled": [],
+    "released": []
+  },
+  "terminal_execution": [
+    "completed",
+    "failed",
+    "cancelled"
+  ],
+  "terminal_financial": [
+    "settled",
+    "released"
+  ],
+  "parent": {
+    "queued": [
+      "running",
+      "completed",
+      "partial",
+      "failed",
+      "cancelled"
+    ],
+    "running": [
+      "completed",
+      "partial",
+      "failed",
+      "cancelled"
+    ],
+    "completed": [],
+    "partial": [],
+    "failed": [],
+    "cancelled": []
+  },
+  "parent_cancel_requested": "independent boolean"
+}
