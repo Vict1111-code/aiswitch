@@ -22,4 +22,8 @@
 - [Human–AI collaboration](19-human-ai-collaboration.md)
 - [Shared intelligence and context synchronization](20-shared-intelligence.md)
 
-PRD and SRS v1.2 incorporate collaboration-first scope. Other documents are planning baselines pending expansion; not verbatim copies of earlier Word package.
+- [Architecture decisions](21-architecture-decisions.md)
+- [OpenAPI contract](openapi.yaml)
+- [Consistency audit](22-consistency-audit.md)
+
+Collaboration-first PRD/SRS and expanded core specifications are proposed planning baselines, not verified implementation. See audit for unresolved gates.
