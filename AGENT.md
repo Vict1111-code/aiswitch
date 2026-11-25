@@ -34,3 +34,6 @@ Reconciled PRD/SRS priorities, event vocabulary, index and backlog coverage; add
 
 ## Phase 0.10 — Planning baseline handoff
 PR #1 contains documentation only; final inventory 26 files. Merge as conditional planning baseline, not implementation approval. Start F01 (issue #2) from master after verified merge; review ADRs, resolve API/schema and state-machine gaps, validate contracts and traceability. F02 scaffolding follows F01. Keep issues #2–18 open until acceptance evidence exists. No paid calls or provisioning authorized by this baseline.
+
+## Phase 1.1 — F01 engineering review
+PR #1 merged into master at f6f1406. Branch feat/f01-engineering-review; docs/23-engineering-review.md records recommendations for all 17 ADRs and remaining gates. ADRs remain proposed; no implementation or validation yet. Next complete P0 API contracts and independent lint; then physical schema and traceability. Keep issue #2 open.
