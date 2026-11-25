@@ -186,6 +186,33 @@ revoke all on function aiswitch.reject_mutation() from public;
 create trigger ledger_append_only before update or delete on aiswitch.ledger_events for each row execute function aiswitch.reject_mutation();
 create trigger pricing_append_only before update or delete on aiswitch.model_pricing for each row execute function aiswitch.reject_mutation();
 
+-- Review integrity additions; no client grants.
+alter table aiswitch.rooms add column owner_id uuid not null,
+ add column visibility text not null default 'private' check(visibility in ('private','shared')),
+ add foreign key(workspace_id,project_id,owner_id) references aiswitch.project_members(workspace_id,project_id,user_id);
+alter table aiswitch.budgets
+ add column project_scope_id uuid generated always as (case when scope_kind='project' then scope_id end) stored,
+ add column room_scope_id uuid generated always as (case when scope_kind='room' then scope_id end) stored,
+ add column user_scope_id uuid generated always as (case when scope_kind='user' then scope_id end) stored,
+ add column credential_scope_id uuid generated always as (case when scope_kind='credential' then scope_id end) stored,
+ add check(scope_kind<>'workspace' or scope_id=workspace_id),
+ add foreign key(workspace_id,project_scope_id) references aiswitch.projects(workspace_id,id),
+ add foreign key(workspace_id,room_scope_id) references aiswitch.rooms(workspace_id,id),
+ add foreign key(workspace_id,user_scope_id) references aiswitch.memberships(workspace_id,user_id),
+ add foreign key(workspace_id,credential_scope_id) references aiswitch.provider_credentials(workspace_id,id);
+-- btree_gist extension prerequisite deliberately explicit; disposable validation required.
+create extension if not exists btree_gist;
+alter table aiswitch.budgets add constraint budgets_no_overlap exclude using gist
+ (workspace_id with =, scope_kind with =, scope_id with =, currency with =,
+ tstzrange(period_start,period_end,'[)') with &&);
+-- Separate encrypted material from metadata. Foreign keys follow the moved relation.
+create schema aiswitch_vault;
+revoke all on schema aiswitch_vault from public;
+alter table aiswitch.credential_versions set schema aiswitch_vault;
+alter table aiswitch_vault.credential_versions enable row level security;
+alter table aiswitch_vault.credential_versions force row level security;
+revoke all on all tables in schema aiswitch_vault from public;
+
 -- Deny all ordinary roles until narrowly scoped access policies and grants are reviewed.
 do $$ declare t record; begin
  for t in select tablename from pg_tables where schemaname='aiswitch' loop
