@@ -1,6 +1,6 @@
 # AISwitch — Product Requirements Document
 
-Version 1.2 | 2026-11-25 | Proposed baseline
+Version 1.3 | 2026-11-25 | Proposed baseline
 
 ## 1. Executive summary
 AISwitch is a provider-independent AI-native engineering workspace combining chat, coding, web/mobile app generation, research, knowledge and controlled agents. BYOK is foundational: multiple credentials per provider and extensible adapters, not a promise of universal protocol compatibility.
@@ -15,7 +15,7 @@ Provider lock-in, fragmented tooling, lost context, unreliable code and research
 Secure multi-provider access; concurrent model collaboration; portable software; evidence-based research; persistent scoped memory; bounded agents; transparent cost; extensible integrations.
 
 ## 5. Personas
-Developers, AI engineers, vibe coders, students, researchers, founders, freelancers, teams and enterprises. Initial persona: individual developer/researcher with existing API credentials.
+Developers, AI engineers, vibe coders, students, researchers, founders, freelancers, teams and enterprises. Initial personas: individual developers and small teams with existing API credentials.
 
 ## 6. Scope
 Web-first personal and small-team workspace; desktop/mobile clients and advanced commercial collaboration later. Generated mobile apps are distinct from the Studio mobile client.
@@ -41,14 +41,14 @@ Priority: P0.
 ### 8.3 Credential management (KEY)
 Priority: P0.
 
-**Requirements:** Add named credentials in settings, multiple keys per provider, validate, encrypt, mask, enable, disable, rotate, delete, select defaults and track usage. Custom endpoints specify protocol, auth, headers, model IDs, limits and prices. P1 credential budgets and authorized fallback; P2 temporary/shared credentials.
+**Requirements:** Add named credentials in settings, multiple keys per provider, validate, encrypt, mask, enable, disable, rotate, delete, select defaults and track usage. Custom endpoints specify protocol, auth, headers, model IDs, limits and prices. P0 scoped shared credentials and credential budgets; P1 authorized fallback; P2 temporary credentials.
 
 **Acceptance:** No raw secret in logs, prompts, exports or client responses; revoked key cannot start new requests.
 
 ### 8.4 Model registry and routing (MOD)
 Priority: P0.
 
-**Requirements:** Discovery/manual model IDs, capability metadata, enable/disable, default, context and output limits, temperature. P1 reasoning controls, task recommendations, routing policies, health, fallback and comparison. P2 evaluation. Modes manual, economy, fast, performance, research, coding, automatic and custom.
+**Requirements:** Discovery/manual model IDs, capability metadata, enable/disable, default, context and output limits, temperature. P0 manual parallel comparison; P1 reasoning controls, task recommendations, routing policies, health and fallback. P2 evaluation. Modes manual, economy, fast, performance, research, coding, automatic and custom.
 
 **Acceptance:** Routing respects capabilities, consent and budget; chosen provider/model/credential alias is visible.
 
@@ -69,14 +69,14 @@ Priority: P0/P1/P2.
 ### 8.7 Projects and workspaces (PROJ)
 Priority: P0.
 
-**Requirements:** CRUD, isolated conversations, descriptions and instructions. P1 files, repositories, model config, knowledge, documentation, tasks, activity, export/import and budgets. P2 templates, duplication and teams.
+**Requirements:** CRUD, isolated conversations, descriptions and instructions. P0 basic membership, activity and budgets; P1 files, repositories, model config, knowledge, documentation, tasks and export/import. P2 templates, duplication and advanced organizations.
 
 **Acceptance:** Project instructions apply only to selected project; access checked for each resource.
 
 ### 8.8 Code Studio (CODE)
 Priority: P1.
 
-**Requirements:** Explorer, tabs, syntax highlighting, search, code generation/explanation/refactoring, multi-file edits, diffs, accept/reject, terminal, sandbox, tests, dependencies, checkpoints, repository indexing and preview. P2 completion, language servers, debugging, local filesystem and dev containers; P3 collaboration. Initial JS/TS/Python/Go/HTML/CSS/SQL/Shell; expand Rust, Java, C/C++, C#, Dart, Kotlin, Swift, PHP.
+**Requirements:** Explorer, tabs, syntax highlighting, search, code generation/explanation/refactoring, multi-file edits, diffs, accept/reject, terminal, sandbox, tests, dependencies, checkpoints, repository indexing and preview. P2 completion, language servers, debugging, local filesystem and dev containers; P1 collaborative editing. Initial JS/TS/Python/Go/HTML/CSS/SQL/Shell; expand Rust, Java, C/C++, C#, Dart, Kotlin, Swift, PHP.
 
 **Acceptance:** Proposed patch is reviewable, tests run in isolation, rejected patch leaves original intact.
 
@@ -125,7 +125,7 @@ Priority: P1.
 ### 8.15 Usage and budgets (COST)
 Priority: P0.
 
-**Requirements:** Track tokens, estimated request cost, provider/key/model, daily/monthly limits, alerts, dashboard, manual balances and pricing. P1 project/workflow limits, preflight estimate, export, provider balance where available, caching, context optimization, credit expiry. P2 billing reconciliation. Atomic reservations and actual usage reconciliation; distinguish estimated, reported and manually entered values.
+**Requirements:** Track tokens, estimated request cost, provider/key/model, daily/monthly limits, alerts, dashboard, manual balances and pricing. P0 project/team/room limits and preflight reservation; P1 workflow limits, export, provider balance where available, caching and context optimization; manual credit expiry records P0. P2 billing reconciliation. Atomic reservations and actual usage reconciliation; distinguish estimated, reported and manually entered values.
 
 **Acceptance:** Concurrent requests cannot bypass local reservations; unknown pricing requires explicit policy; external billing may differ.
 
@@ -160,7 +160,7 @@ Priority: P0/P1.
 ### 8.20 Organizations (TEAM)
 Priority: P2.
 
-**Requirements:** Organizations, invites, owner/admin/member/viewer, shared projects/chat/knowledge, budgets, model policies and audit logs. P3 realtime collaboration and enterprise governance.
+**Requirements:** Organizations, invites, owner/admin/member/viewer, shared projects/chat/knowledge, budgets, model policies and audit logs. P0 basic realtime collaboration and membership; P3 enterprise governance.
 
 **Acceptance:** Role changes take effect on subsequent requests; tenant boundaries remain enforced.
 
@@ -174,7 +174,7 @@ Proposed Next.js/React/TypeScript, Tailwind, Monaco, xterm.js, FastAPI, PostgreS
 See [database design](05-database.md). Tenant ownership, scoped foreign keys, RLS where applicable, encrypted credential vault, versioned migrations and deletion of derived records.
 
 ## 12. API
-Versioned /api/v1, authenticated authorization, typed validation, standardized errors, pagination, idempotency and streaming events. See [API](06-api.md); formal OpenAPI pending.
+Versioned /api/v1, authenticated authorization, typed validation, standardized errors, pagination, idempotency and streaming events. See [API](06-api.md); initial OpenAPI available; completeness and independent validation pending.
 
 ## 13. Nonfunctional requirements
 Proposed targets: initial load under 3s under defined conditions; internal API p95 under 500ms excluding upstream; streaming overhead p95 under 300ms; typical search under 2s; async long jobs; 99.5% MVP availability, 99.9% mature; daily backups, RPO 24h/RTO 4h; WCAG 2.2 AA; current stable Chrome/Firefox/Edge/Safari. Establish test conditions before release.
@@ -235,7 +235,7 @@ Marketplace, local-first desktop, self-hosted enterprise, collaboration, visual 
 One extensible workspace for provider-independent AI chat, engineering, research and controlled collaboration, with user ownership of code and credentials.
 
 ## 26. Supporting documents and decisions
-See [index](README.md). Stack, modular monolith, 50-week roadmap, pricing, quality targets and Expo are proposed, not approved. Detailed per-feature IDs beyond MMC, formal SRS, ERD, OpenAPI and ADRs remain pending. This is an expanded structured adaptation of the conversational PRD, not a verbatim reproduction.
+See [index](README.md). Stack, modular monolith, 50-week roadmap, pricing, quality targets and Expo are proposed, not approved. SRS, logical ERD, initial OpenAPI and proposed ADRs exist; detailed per-feature traceability and physical implementation remain pending. This is an expanded structured adaptation of the conversational PRD, not a verbatim reproduction.
 
 ## 27. Human–AI collaboration (HAC)
 Collaboration is foundational. [HAC-001–030](19-human-ai-collaboration.md) and [shared intelligence](20-shared-intelligence.md) are normative companion requirements. P0 basic group chat, invitations, shared project context, realtime messages, permissioned credentials, team budgets and activity. P1 presence, rooms, decisions, task coordination, collaborative editing/research. P2 voice/video/whiteboard; P3 virtual office. Basic membership is P0; advanced organization administration remains P2. Seven proposed engines: gateway, collaboration, shared intelligence, engineering, orchestration, research and resource optimization. Track context repetition and cost per completed task. This section supersedes conflicting personal-only scope or team priority statements.
