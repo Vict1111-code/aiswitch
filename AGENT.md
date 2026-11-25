@@ -49,3 +49,6 @@ Added docs/25-state-machines.md and docs/contracts/state-machines.json; gateway 
 
 ## Phase 1.5 — Traceability
 Added docs/26-traceability.md and docs/contracts/traceability.json: 166 unique identified requirements/cases mapped to proposed issue and test IDs. All planned, no executed tests. Mixed priorities, unnumbered PRD clauses, NFRs, API/DB test crosswalk and detailed assertions pending. Next independent technical validation; F01 open, PR #19 draft.
+
+## Phase 1.6 — Static technical validation
+Readback found four missing SRS-HAC IDs; corrected registry and matrix to 170 records (92 P0). docs/27-technical-validation.md records static checks and blockers. External OpenAPI/SQL validators and link crawl not run. F01 blocked; PR #19 draft. Next remediate blockers rather than close F01.
