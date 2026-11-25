@@ -19,3 +19,6 @@ Expanded docs/05-database.md v1.0: 57 logical entities, four ERDs, tenant compos
 
 ## Phase 0.5 — Universal AI Gateway
 Expanded docs/07-ai-gateway.md v1.0: 20 sections, 14 planned provider targets, GW-001–028 acceptance requirements, normalized adapter/stream contracts, routing, credential grants, child runs, context consent, credit estimates, cost reconciliation and local bridge. Database follow-ups listed in section 20. No live provider calls or tests. Next Phase 0.6 API contracts and OpenAPI.
+
+## Phase 0.6 — API contracts
+Expanded docs/06-api.md and added docs/openapi.yaml (OpenAPI 3.1, 35 initial P0 operations, 22 schemas). REST/SSE and proposed WebSocket protocol; unique operation IDs and schema refs checked during generation. Partial contract with explicit gaps in section 10; no external lint or runtime tests. Next Phase 0.7 ADRs; resolve contract gaps before implementation and reconcile SRS priorities/event names.
