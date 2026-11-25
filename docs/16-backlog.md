@@ -21,3 +21,6 @@
 | F15 | P1/P2 | Routing, debate and bounded agents | F08,F11,F13 | GW-023–028; SRS-AGENT | Consent-aware routing, bounded rounds, approval replay and pause/resume | [#16](https://github.com/Vict1111-code/aiswitch/issues/16) |
 | F16 | P2 | Integrations and mobile/desktop expansion | F14,F15 | SRS-PLUG/DEPLOY/AUTO | Scoped integration, deployment approval and client compatibility | [#17](https://github.com/Vict1111-code/aiswitch/issues/17) |
 | F17 | P2/P3 | Commercial and advanced collaboration | F10,F16 | HAC-026–030; SRS-TEAM | Pilot demand, consent, billing and privacy gates before rollout | [#18](https://github.com/Vict1111-code/aiswitch/issues/18) |
+
+## Coverage clarifications
+F06 includes P0 conversation CRUD/search/edit/regenerate and saved prompts (CHAT/LIB); F04 includes custom endpoint and manual model registration; F05 includes manual credit records and expiry; F07 includes P0 curated context revision/deletion; F08 includes GW-011–012 explicit invocation and isolated child outcomes. F11 includes P1 files/artifacts and context indexing. F01 must resolve detailed contracts and traceability before affected implementation. These are backlog clarifications, not completed tasks.
