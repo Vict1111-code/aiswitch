@@ -46,3 +46,6 @@ Added docs/24-physical-schema.md and docs/sql/p0-core-review.sql (14 core tables
 
 ## Phase 1.4 — State machines
 Added docs/25-state-machines.md and docs/contracts/state-machines.json; gateway section 11 reconciled. 16 planned acceptance cases; execution and financial lifecycles independent, dispatch intent and fencing, no blind retry, late usage/corrections. No runtime tests. DDL and typed events still incomplete. Next P0 requirements-to-test traceability. F01 open, PR #19 draft.
+
+## Phase 1.5 — Traceability
+Added docs/26-traceability.md and docs/contracts/traceability.json: 166 unique identified requirements/cases mapped to proposed issue and test IDs. All planned, no executed tests. Mixed priorities, unnumbered PRD clauses, NFRs, API/DB test crosswalk and detailed assertions pending. Next independent technical validation; F01 open, PR #19 draft.
