@@ -52,3 +52,6 @@ Added docs/26-traceability.md and docs/contracts/traceability.json: 166 unique i
 
 ## Phase 1.6 — Static technical validation
 Readback found four missing SRS-HAC IDs; corrected registry and matrix to 170 records (92 P0). docs/27-technical-validation.md records static checks and blockers. External OpenAPI/SQL validators and link crawl not run. F01 blocked; PR #19 draft. Next remediate blockers rather than close F01.
+
+## Phase 1.6A — API and parent-state remediation
+OpenAPI v1.2.0: 59 operations, 77 schemas, 12 typed event variants, structured consent, page parameters and five CRUD operations. Parent status aligned in API, review SQL and JSON registry; cancellation flag separate. B01 partial, B03 specification aligned pending validation. B02 physical schema next. External validation not run; F01 remains blocked.
