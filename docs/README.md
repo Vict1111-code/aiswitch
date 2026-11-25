@@ -19,4 +19,7 @@
 - [Risks and metrics](17-risks.md)
 - [Multi-model chat specification](18-multi-model-chat.md)
 
-These are concise revised planning baselines, not verbatim copies of the earlier Word package. Expanded PRD and detailed contracts require further elaboration.
+- [Human–AI collaboration](19-human-ai-collaboration.md)
+- [Shared intelligence and context synchronization](20-shared-intelligence.md)
+
+PRD and SRS v1.2 incorporate collaboration-first scope. Other documents are planning baselines pending expansion; not verbatim copies of earlier Word package.
