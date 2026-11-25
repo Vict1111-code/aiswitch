@@ -61,3 +61,6 @@ Review DDL now 39 tables; added identity ACL, gateway vault metadata, context, p
 
 ## Phase 1.6C — Transaction contracts
 Readback detected SQL corruption from previous string replacement (currency regex and dollar quotes); repaired. Added docs/28-transaction-contracts.md (10 operations, 14 planned tests) and docs/sql/p0-transaction-review.sql (2 internal primitives, no grants). Eight operations remain specification-only. No database execution. Next scoped authorization, budget integrity and executable validation; F01 blocked.
+
+## Phase 1.6D — Authorization and integrity
+Added room owner/visibility, typed budget scope FKs, overlapping-period exclusion (btree_gist), separate vault schema and docs/29-authorization-integrity.md. 12 planned authorization tests. No access-granting RLS policies or dispatch enforcement implemented; no SQL executed. Next prioritize executable disposable validation and remediation, not more documentation. F01 blocked.
