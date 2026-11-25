@@ -42,7 +42,7 @@ create table aiswitch.outbox (
 );
 create table aiswitch.runs (
  id uuid primary key default gen_random_uuid(), workspace_id uuid not null, room_id uuid not null, initiator_id uuid not null,
- idempotency_key text not null, request_hash text not null, status text not null check(status in ('queued','validating','reserved','running','completed','partial','failed','cancel_requested','cancelled')),
+ idempotency_key text not null, request_hash text not null, status text not null check(status in ('queued','running','completed','partial','failed','cancelled')), cancel_requested boolean not null default false,
  unique(workspace_id,id), unique(workspace_id,initiator_id,idempotency_key),
  foreign key(workspace_id,room_id) references aiswitch.rooms(workspace_id,id), foreign key(workspace_id,initiator_id) references aiswitch.memberships(workspace_id,user_id)
 );
