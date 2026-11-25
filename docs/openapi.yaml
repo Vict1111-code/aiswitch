@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "AISwitch API",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Proposed P0 contract subset; not deployed."
   },
   "servers": [
@@ -2050,6 +2050,63 @@
                 "schema": {
                   "$ref": "#/components/schemas/Error"
                 }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateCredential",
+        "summary": "updateCredential",
+        "x-priority": "P0",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "credential_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Credential"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CredentialUpdate"
               }
             }
           }
@@ -4566,6 +4623,23 @@
               "type": "string",
               "format": "uuid"
             }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
           }
         ],
         "responses": {
@@ -5107,6 +5181,23 @@
               "type": "string",
               "format": "uuid"
             }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
           }
         ],
         "responses": {
@@ -5292,6 +5383,53 @@
             }
           }
         }
+      },
+      "get": {
+        "operationId": "getProject",
+        "summary": "getProject",
+        "x-priority": "P0",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Project"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/workspaces/{workspace_id}/rooms/{room_id}": {
@@ -5336,6 +5474,110 @@
                 "schema": {
                   "$ref": "#/components/schemas/Error"
                 }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getRoom",
+        "summary": "getRoom",
+        "x-priority": "P0",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "room_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Room"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "renameRoom",
+        "summary": "renameRoom",
+        "x-priority": "P0",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "room_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Room"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RoomUpdate"
               }
             }
           }
@@ -5403,6 +5645,62 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/MessageEdit"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "deleteMessage",
+        "summary": "deleteMessage",
+        "x-priority": "P0",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "room_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "message_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ack"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
               }
             }
           }
@@ -5554,6 +5852,23 @@
             "schema": {
               "type": "string",
               "format": "uuid"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
             }
           }
         ],
@@ -6300,13 +6615,10 @@
             "type": "string",
             "enum": [
               "queued",
-              "validating",
-              "reserved",
               "running",
               "completed",
               "partial",
               "failed",
-              "cancel_requested",
               "cancelled"
             ]
           },
@@ -6322,13 +6634,17 @@
             "items": {
               "$ref": "#/components/schemas/ChildRun"
             }
+          },
+          "cancel_requested": {
+            "type": "boolean"
           }
         },
         "required": [
           "id",
           "status",
           "child_ids",
-          "children"
+          "children",
+          "cancel_requested"
         ],
         "additionalProperties": false
       },
@@ -6487,7 +6803,7 @@
             "format": "uuid"
           },
           "scope": {
-            "type": "string"
+            "$ref": "#/components/schemas/ConsentScope"
           }
         },
         "required": [
@@ -6536,64 +6852,44 @@
         "additionalProperties": false
       },
       "Event": {
-        "type": "object",
-        "properties": {
-          "schema_version": {
-            "const": "1"
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/EventAccepted"
           },
-          "event_id": {
-            "type": "string",
-            "format": "uuid"
+          {
+            "$ref": "#/components/schemas/EventQueued"
           },
-          "parent_run_id": {
-            "type": "string",
-            "format": "uuid"
+          {
+            "$ref": "#/components/schemas/EventStarted"
           },
-          "child_run_id": {
-            "type": "string",
-            "format": "uuid"
+          {
+            "$ref": "#/components/schemas/EventTextDelta"
           },
-          "sequence": {
-            "type": "integer",
-            "minimum": 1
+          {
+            "$ref": "#/components/schemas/EventReasoningSummary"
           },
-          "timestamp": {
-            "type": "string",
-            "format": "date-time"
+          {
+            "$ref": "#/components/schemas/EventToolCallDelta"
           },
-          "type": {
-            "type": "string",
-            "enum": [
-              "accepted",
-              "queued",
-              "started",
-              "text_delta",
-              "reasoning_summary",
-              "tool_call_delta",
-              "tool_call_ready",
-              "usage_update",
-              "warning",
-              "completed",
-              "failed",
-              "cancelled"
-            ]
+          {
+            "$ref": "#/components/schemas/EventToolCallReady"
           },
-          "payload": {
-            "type": "object",
-            "additionalProperties": true
+          {
+            "$ref": "#/components/schemas/EventUsageUpdate"
+          },
+          {
+            "$ref": "#/components/schemas/EventWarning"
+          },
+          {
+            "$ref": "#/components/schemas/EventCompleted"
+          },
+          {
+            "$ref": "#/components/schemas/EventFailed"
+          },
+          {
+            "$ref": "#/components/schemas/EventCancelled"
           }
-        },
-        "required": [
-          "schema_version",
-          "event_id",
-          "parent_run_id",
-          "child_run_id",
-          "sequence",
-          "timestamp",
-          "type",
-          "payload"
-        ],
-        "additionalProperties": false
+        ]
       },
       "Ack": {
         "type": "object",
@@ -7156,8 +7452,7 @@
             "format": "uuid"
           },
           "scope": {
-            "type": "string",
-            "minLength": 1
+            "$ref": "#/components/schemas/ConsentScope"
           }
         },
         "required": [
@@ -7527,6 +7822,751 @@
         "required": [
           "items",
           "next_cursor"
+        ],
+        "additionalProperties": false
+      },
+      "EventAccepted": {
+        "type": "object",
+        "properties": {
+          "schema_version": {
+            "const": "1"
+          },
+          "event_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "parent_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "child_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sequence": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "type": {
+            "const": "accepted"
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "const": "queued"
+              }
+            },
+            "required": [
+              "status"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "schema_version",
+          "event_id",
+          "parent_run_id",
+          "child_run_id",
+          "sequence",
+          "timestamp",
+          "type",
+          "payload"
+        ],
+        "additionalProperties": false
+      },
+      "EventQueued": {
+        "type": "object",
+        "properties": {
+          "schema_version": {
+            "const": "1"
+          },
+          "event_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "parent_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "child_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sequence": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "type": {
+            "const": "queued"
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "const": "queued"
+              }
+            },
+            "required": [
+              "status"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "schema_version",
+          "event_id",
+          "parent_run_id",
+          "child_run_id",
+          "sequence",
+          "timestamp",
+          "type",
+          "payload"
+        ],
+        "additionalProperties": false
+      },
+      "EventStarted": {
+        "type": "object",
+        "properties": {
+          "schema_version": {
+            "const": "1"
+          },
+          "event_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "parent_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "child_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sequence": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "type": {
+            "const": "started"
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "const": "running"
+              }
+            },
+            "required": [
+              "status"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "schema_version",
+          "event_id",
+          "parent_run_id",
+          "child_run_id",
+          "sequence",
+          "timestamp",
+          "type",
+          "payload"
+        ],
+        "additionalProperties": false
+      },
+      "EventTextDelta": {
+        "type": "object",
+        "properties": {
+          "schema_version": {
+            "const": "1"
+          },
+          "event_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "parent_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "child_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sequence": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "type": {
+            "const": "text_delta"
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "text"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "schema_version",
+          "event_id",
+          "parent_run_id",
+          "child_run_id",
+          "sequence",
+          "timestamp",
+          "type",
+          "payload"
+        ],
+        "additionalProperties": false
+      },
+      "EventReasoningSummary": {
+        "type": "object",
+        "properties": {
+          "schema_version": {
+            "const": "1"
+          },
+          "event_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "parent_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "child_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sequence": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "type": {
+            "const": "reasoning_summary"
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "summary": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "summary"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "schema_version",
+          "event_id",
+          "parent_run_id",
+          "child_run_id",
+          "sequence",
+          "timestamp",
+          "type",
+          "payload"
+        ],
+        "additionalProperties": false
+      },
+      "EventToolCallDelta": {
+        "type": "object",
+        "properties": {
+          "schema_version": {
+            "const": "1"
+          },
+          "event_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "parent_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "child_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sequence": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "type": {
+            "const": "tool_call_delta"
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "call_id": {
+                "type": "string"
+              },
+              "arguments_delta": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "call_id",
+              "arguments_delta"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "schema_version",
+          "event_id",
+          "parent_run_id",
+          "child_run_id",
+          "sequence",
+          "timestamp",
+          "type",
+          "payload"
+        ],
+        "additionalProperties": false
+      },
+      "EventToolCallReady": {
+        "type": "object",
+        "properties": {
+          "schema_version": {
+            "const": "1"
+          },
+          "event_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "parent_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "child_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sequence": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "type": {
+            "const": "tool_call_ready"
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "call_id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "arguments": {
+                "type": "object"
+              }
+            },
+            "required": [
+              "call_id",
+              "name",
+              "arguments"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "schema_version",
+          "event_id",
+          "parent_run_id",
+          "child_run_id",
+          "sequence",
+          "timestamp",
+          "type",
+          "payload"
+        ],
+        "additionalProperties": false
+      },
+      "EventUsageUpdate": {
+        "type": "object",
+        "properties": {
+          "schema_version": {
+            "const": "1"
+          },
+          "event_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "parent_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "child_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sequence": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "type": {
+            "const": "usage_update"
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "input_tokens": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "output_tokens": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "quality": {
+                "type": "string",
+                "enum": [
+                  "reported",
+                  "estimated",
+                  "unknown"
+                ]
+              }
+            },
+            "required": [
+              "quality"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "schema_version",
+          "event_id",
+          "parent_run_id",
+          "child_run_id",
+          "sequence",
+          "timestamp",
+          "type",
+          "payload"
+        ],
+        "additionalProperties": false
+      },
+      "EventWarning": {
+        "type": "object",
+        "properties": {
+          "schema_version": {
+            "const": "1"
+          },
+          "event_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "parent_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "child_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sequence": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "type": {
+            "const": "warning"
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "schema_version",
+          "event_id",
+          "parent_run_id",
+          "child_run_id",
+          "sequence",
+          "timestamp",
+          "type",
+          "payload"
+        ],
+        "additionalProperties": false
+      },
+      "EventCompleted": {
+        "type": "object",
+        "properties": {
+          "schema_version": {
+            "const": "1"
+          },
+          "event_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "parent_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "child_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sequence": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "type": {
+            "const": "completed"
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "const": "completed"
+              }
+            },
+            "required": [
+              "status"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "schema_version",
+          "event_id",
+          "parent_run_id",
+          "child_run_id",
+          "sequence",
+          "timestamp",
+          "type",
+          "payload"
+        ],
+        "additionalProperties": false
+      },
+      "EventFailed": {
+        "type": "object",
+        "properties": {
+          "schema_version": {
+            "const": "1"
+          },
+          "event_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "parent_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "child_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sequence": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "type": {
+            "const": "failed"
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "error": {
+                "$ref": "#/components/schemas/Error"
+              }
+            },
+            "required": [
+              "error"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "schema_version",
+          "event_id",
+          "parent_run_id",
+          "child_run_id",
+          "sequence",
+          "timestamp",
+          "type",
+          "payload"
+        ],
+        "additionalProperties": false
+      },
+      "EventCancelled": {
+        "type": "object",
+        "properties": {
+          "schema_version": {
+            "const": "1"
+          },
+          "event_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "parent_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "child_run_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sequence": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "type": {
+            "const": "cancelled"
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "const": "cancelled"
+              }
+            },
+            "required": [
+              "status"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "schema_version",
+          "event_id",
+          "parent_run_id",
+          "child_run_id",
+          "sequence",
+          "timestamp",
+          "type",
+          "payload"
+        ],
+        "additionalProperties": false
+      },
+      "ConsentScope": {
+        "type": "object",
+        "properties": {
+          "destination_kind": {
+            "type": "string",
+            "enum": [
+              "provider",
+              "custom_endpoint"
+            ]
+          },
+          "destination_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "allowed_sources": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "room_history",
+                "project_instructions",
+                "curated_facts"
+              ]
+            }
+          },
+          "room_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "destination_kind",
+          "destination_id",
+          "allowed_sources"
+        ],
+        "additionalProperties": false
+      },
+      "CredentialUpdate": {
+        "type": "object",
+        "properties": {
+          "alias": {
+            "type": "string",
+            "minLength": 1
+          },
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "RoomUpdate": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "name"
         ],
         "additionalProperties": false
       }
