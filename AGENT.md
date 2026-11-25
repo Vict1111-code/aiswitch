@@ -31,3 +31,6 @@ Expanded roadmap and backlog: 17 work packages, GitHub issues #2–18 created, d
 
 ## Phase 0.9 — Static consistency audit
 Reconciled PRD/SRS priorities, event vocabulary, index and backlog coverage; added docs/22-consistency-audit.md. Parsed OpenAPI: 35 unique operations, 22 schemas, no unresolved component refs. Partial audit only; independent lint, full link crawl, Mermaid rendering, physical DDL, complete contracts, ADR acceptance and full traceability pending. F01 blocks affected implementation. Next Phase 0.10 final planning-baseline review and merge decision.
+
+## Phase 0.10 — Planning baseline handoff
+PR #1 contains documentation only; final inventory 26 files. Merge as conditional planning baseline, not implementation approval. Start F01 (issue #2) from master after verified merge; review ADRs, resolve API/schema and state-machine gaps, validate contracts and traceability. F02 scaffolding follows F01. Keep issues #2–18 open until acceptance evidence exists. No paid calls or provisioning authorized by this baseline.
