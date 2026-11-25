@@ -1,0 +1,5 @@
+# Product requirements
+
+Status: proposed baseline — 2026-11-25.
+
+P0: authentication, tenant isolation, multiple encrypted credentials per provider, OpenAI/Anthropic/OpenRouter/custom compatible adapters, discovery/manual registration, streaming chat, model switching, parallel comparison, history, projects, instructions, prompt library, usage ledger and budgets. P1: attachments, memory, research, Git, editor, sandbox, web app builder, group chat and debate. P2: mobile app builder, multi-agent orchestration, deployment, automation and teams. P3: marketplace and enterprise. Acceptance: valid keys work without plaintext exposure; streams cancel independently; budget reservations prevent new requests above limits; project context survives model switching. Research must cite retrieved evidence; code changes require review and tests. See multi-model specification for MMC-001–020. Proposed quality targets: 99.5% availability, 98% chat success excluding upstream failures, 95% citation validity, zero cross-tenant leakage. Full detailed PRD remains in conversation; this is a condensed repository baseline.
