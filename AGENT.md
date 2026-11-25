@@ -13,3 +13,6 @@ PRD/SRS v1.2; HAC-001–030 and CTX-001–010 added. P0 small-team collaboration
 
 ## Phase 0.3 — SAD
 Expanded docs/04-architecture.md v1.0: seven logical engines, modular monolith, separate trusted workers/sandbox, durable realtime outbox, child model runs, context manifests, atomic budgets, security boundaries, deployment and proposed monorepo. Next Phase 0.4 database schema and ERD. ADRs pending; no runtime tests or infrastructure provisioned.
+
+## Phase 0.4 — Database design
+Expanded docs/05-database.md v1.0: 57 logical entities, four ERDs, tenant composite FKs, RLS design, transactional room events, atomic budget ledger, context lifecycle, indexes and migration plan. Physical SQL and tests pending; no database provisioned. Next Phase 0.5 Universal AI Gateway specification.
