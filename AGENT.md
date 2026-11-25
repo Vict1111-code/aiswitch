@@ -25,3 +25,6 @@ Expanded docs/06-api.md and added docs/openapi.yaml (OpenAPI 3.1, 35 initial P0 
 
 ## Phase 0.7 — Architecture decisions
 Added docs/21-architecture-decisions.md: ADR-001–017 proposed, alternatives, rationale, consequences and acceptance evidence. No decisions formally accepted or benchmarks run. Next Phase 0.8 implementation roadmap and GitHub issues; include ADR review and unresolved contract/schema gates.
+
+## Phase 0.8 — Roadmap and issues
+Expanded roadmap and backlog: 17 work packages, GitHub issues #2–18 created, dependencies and acceptance gates. 50-week indicative schedule; staffing and effort not validated. Next Phase 0.9 documentation consistency validation. No implementation or tests; PR #1 remains open.
