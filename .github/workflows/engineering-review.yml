@@ -1,0 +1,43 @@
+name: Engineering review validation
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install openapi-spec-validator==0.7.2
+      - run: python scripts/validate_review.py
+  postgres:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: disposable_test
+          POSTGRES_DB: review
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      PGHOST: localhost
+      PGPORT: 5432
+      PGUSER: postgres
+      PGPASSWORD: disposable_test
+      PGDATABASE: review
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y postgresql-client
+      - run: psql -X -v ON_ERROR_STOP=1 -f docs/sql/p0-core-review.sql
+      - run: psql -X -v ON_ERROR_STOP=1 -f docs/sql/p0-transaction-review.sql
+      - run: psql -X -v ON_ERROR_STOP=1 -f tests/sql/review-smoke.sql
