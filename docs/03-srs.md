@@ -1,9 +1,9 @@
 # AISwitch — Software Requirements Specification
 
-Version 1.1 | 2026-11-25 | Proposed engineering baseline
+Version 1.2 | 2026-11-25 | Proposed engineering baseline
 
 ## 1. Purpose and scope
-Derived from [PRD v1.1](02-prd.md) and [multi-model specification](18-multi-model-chat.md). P0 is personal web MVP; P1 core engineering; P2 advanced; P3 future. This document specifies observable behavior, not verified implementation. P3 features retain PRD scope and require later detailed specifications.
+Derived from [PRD v1.1](02-prd.md) and [multi-model specification](18-multi-model-chat.md). P0 is personal and small-team web MVP; P1 core engineering; P2 advanced; P3 future. This document specifies observable behavior, not verified implementation. P3 features retain PRD scope and require later detailed specifications.
 
 ## 2. Actors and boundaries
 Guest, authenticated user, workspace member/admin, system worker, external provider and sandbox. All external content and model outputs are untrusted. Only the application gateway may resolve AI credentials. Execution workers receive scoped capabilities, not vault access.
@@ -214,7 +214,10 @@ Test tenant isolation, session revocation, secret redaction, SSRF including redi
 These test IDs are planned verification scenarios, not implemented tests. Full per-feature mapping and P3 detail remain pending.
 
 ## 12. Release gates
-P0 onboarding, valid multi-key connection, single/parallel chat, independent cancellation, persistent history, projects, saved prompts, usage ledger, atomic budgets and tenant isolation must pass. All critical tests green, CI evidence recorded, no secrets exposed, rollback and recovery documented. P1/P2 capabilities are not required for MVP release.
+P0 onboarding, valid multi-key connection, single/parallel chat, independent cancellation, persistent history, projects, saved prompts, usage ledger, atomic budgets and tenant isolation must pass. All critical tests green, CI evidence recorded, no secrets exposed, rollback and recovery documented. HAC-001–011 and MVP shared context acceptance are also mandatory. Other P1/P2 capabilities are not required for MVP release.
 
 ## 13. Open decisions
 Approval expiry, retention durations, exact quotas, provider pricing and credit restrictions, API schemas, sandbox technology, load profile and deployment infrastructure require ADRs and validation. No live provider calls or application tests performed.
+
+## 14. Collaboration requirements and traceability
+Normative [HAC-001–030 with individual acceptance scenarios](19-human-ai-collaboration.md) and [CTX-001–010](20-shared-intelligence.md). SRS-HAC-001: persist and sequence room events before broadcast; reconnect without duplicate effects. SRS-HAC-002: authorize membership, subscriptions and provider dispatch independently. SRS-HAC-003: identify AI actors and require explicit invocation or bounded configured triggers. SRS-HAC-004: scope shared credentials and reserve team budgets atomically. SRS-HAC-005: retrieve only authorized current context and preserve provenance. SRS-HAC-006: record actor and action in durable activity log. P0 tests: two human clients and two mocked models; invite/revoke, concurrent messages, reconnect, private context exclusion, shared key permission and budget race. Advanced collaboration remains phased. Tests planned, not executed.
