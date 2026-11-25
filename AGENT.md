@@ -40,3 +40,6 @@ PR #1 merged into master at f6f1406. Branch feat/f01-engineering-review; docs/23
 
 ## Phase 1.2 — API expansion
 OpenAPI v1.1.0: 54 operations, 62 schemas; unique IDs and component refs checked. Added typed pages, room project binding, invite proof, rotation, tickets, endpoints/manual models, lifecycle routes and child financial status. Independent lint, typed event payloads, consent scope, pagination details and runtime/client generation remain pending. Next physical database schema and migrations. F01 remains open; draft PR #19.
+
+## Phase 1.3 — Physical schema draft
+Added docs/24-physical-schema.md and docs/sql/p0-core-review.sql (14 core tables). Review-only partial DDL, no database execution or deployment. Remaining P0 entities, ACL, vault, ledger, transaction functions and SQL tests pending. Next execution/financial state machines; F01 remains open.
