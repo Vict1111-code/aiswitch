@@ -58,3 +58,6 @@ OpenAPI v1.2.0: 59 operations, 77 schemas, 12 typed event variants, structured c
 
 ## Phase 1.6B — Expanded physical schema
 Review DDL now 39 tables; added identity ACL, gateway vault metadata, context, pricing/jobs/ledger and supporting tables. No SQL execution, no deployed migration. B02 partial; next transaction contracts, scoped authorization and cross-resource integrity, then disposable validation. F01 blocked; PR #19 draft.
+
+## Phase 1.6C — Transaction contracts
+Readback detected SQL corruption from previous string replacement (currency regex and dollar quotes); repaired. Added docs/28-transaction-contracts.md (10 operations, 14 planned tests) and docs/sql/p0-transaction-review.sql (2 internal primitives, no grants). Eight operations remain specification-only. No database execution. Next scoped authorization, budget integrity and executable validation; F01 blocked.
