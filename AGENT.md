@@ -10,3 +10,6 @@ Read docs/README.md, PRD, SRS, roadmap and security before implementation. Use i
 
 ## Phase 0.2A — collaboration realignment
 PRD/SRS v1.2; HAC-001–030 and CTX-001–010 added. P0 small-team collaboration, basic group chat, curated shared context, realtime messaging, membership and team budgets. Advanced debate P1; meetings P2; virtual office P3. Proposed roadmap 50 weeks. Next: Phase 0.3 SAD; incorporate seven engine boundaries and realtime/context trust model. No implementation tests executed. Reconcile remaining baseline documents before merge.
+
+## Phase 0.3 — SAD
+Expanded docs/04-architecture.md v1.0: seven logical engines, modular monolith, separate trusted workers/sandbox, durable realtime outbox, child model runs, context manifests, atomic budgets, security boundaries, deployment and proposed monorepo. Next Phase 0.4 database schema and ERD. ADRs pending; no runtime tests or infrastructure provisioned.
